@@ -30,3 +30,6 @@
     `git remote add origin <url>/<repository-name>.git`
 - Update existing remote url
     `git remote set-url <remote-name> <new-url>`
+- Inspecting a Remote
+	 `git remote show`
+	 `git remote show origin`
