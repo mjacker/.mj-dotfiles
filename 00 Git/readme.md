@@ -12,6 +12,10 @@
 #### Options for log
     git log --graph --all --oneline
 
+#### To list all the files currently being tracked under the branch maste
+	 git ls-tree -r --name-only master
+		> -r is for recursive
+
 #### Global Config Text editor:
     nano	~ git config --global core.editor "nano -w"~
     vim	    ~ git config --global core.editor "vim"~
