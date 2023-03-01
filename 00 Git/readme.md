@@ -16,18 +16,30 @@
 ### Options for log
     git log --graph --all --oneline
 
+### Set origin remote repository
+    git remote add origin https://github.com/mjacker/BranchName.git
+    git set-url origin https://github.com/mjacker/BranchName.git #really need this?
+    git push -u origin master
+
+
+---
+## # Getting Information
 ### To list all the files currently being tracked under the branch maste
 	 git ls-tree -r --name-only master
 		> -r is for recursive
 
+### Get remote URL 
+`git config --get remote.origin.url`
+
+- If required full output then:
+`git remote show origin
+
+
+---
 ### Global Config Text editor:
     nano	~ git config --global core.editor "nano -w"~
     vim	    ~ git config --global core.editor "vim"~
 
-### Get origin status in git log, need tu add to remote
-    git remote add origin https://github.com/mjacker/BranchName.git
-    git set-url origin https://github.com/mjacker/BranchName.git #really need this?
-    git push -u origin master
 
 ### Remote options 
 - Display al remote urls
