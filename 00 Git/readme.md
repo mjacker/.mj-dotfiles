@@ -32,10 +32,14 @@
 `git config --get remote.origin.url`
 
 - If required full output then:
-`git remote show origin
+`git remote show origin`
 
 
 ---
+### Config
+	Get current config list
+	`git config --list`
+
 ### Global Config Text editor:
     nano	~ git config --global core.editor "nano -w"~
     vim	    ~ git config --global core.editor "vim"~
