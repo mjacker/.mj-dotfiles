@@ -11,7 +11,13 @@
 
 ### Branches
 	--delete
-		`git branch --delete <branch-name>
+		`git branch --delete <branch-name>`
+	
+	Adding a comment to the current branch:
+		`git branch --eidt-description`
+
+	Showing current branch details:
+		`git config branch.<branch>.description`
 
 ### Options for log
     git log --graph --all --oneline
@@ -44,7 +50,7 @@
     nano	~ git config --global core.editor "nano -w"~
     vim	    ~ git config --global core.editor "vim"~
 
-
+---
 ### Remote options 
 - Display al remote urls
     `remote -v`
