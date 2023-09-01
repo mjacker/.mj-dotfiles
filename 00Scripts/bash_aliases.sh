@@ -8,27 +8,35 @@
 
 # Vars
 BASHRCFILE=~/.bashrc
-ALIASFILE=~/.bash_aliases
+ALIASNAME=".bash_aliases"
+ALIASPATHFILE=~/$ALIASNAME
+CURRENTPWD=$(pwd)/$ALIASNAME
 
-		
+# Creating a script to upload to git current aliases modified.
+echo "#!/bin/bash" > ~/.bash_update
+echo "ORIALIASPATHFILE=$CURRENTPWD" >>  ~/.bash_update
+echo "cat $ALIASPATHFILE > $CURRENTPWD" >> ~/.bash_update
+echo "git add $CURRENTPWD" >> ~/.bash_update
+echo "git status" >> ~/.bash_update
+
 # Check if .bash_aliases is alrady created.
-echo "Setting $ALIASFILE..."
-if test -f "$ALIASFILE"; then
-	echo "$ALIASFILE already exists! Can't set custom profile."; exit 1
+echo "Setting $ALIASPATHFILE..."
+if test -f "$ALIASPATHFILE"; then
+	echo "$ALIASPATHFILE already exists! Can't set custom profile."; exit 1
 else
-	echo "$ALIASFILE does not exists."
+	echo "$ALIASPATHFILE does not exists."
 	sleep 1
 	echo "Creating .bash_aliases file..."
-	touch $ALIASFILE
+	touch $ALIASPATHFILE
 	sleep 2
 fi
 
-if test -f "$ALIASFILE"; then
-echo "$ALIASFILE created successfully."
+if test -f "$ALIASPATHFILE"; then
+echo "$ALIASPATHFILE created successfully."
 	# If file created setting vim configs.
-	if test -f "$ALIASFILE"; then
+	if test -f "$ALIASPATHFILE"; then
 		echo "Applying config to local .bash_aliases file..."
-		cat .bash_aliases > $ALIASFILE
+		cat .bash_aliases > $ALIASPATHFILE
 	fi
 fi
 
