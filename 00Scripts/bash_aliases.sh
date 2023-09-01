@@ -14,7 +14,7 @@ ALIASFILE=~/.bash_aliases
 # Check if .bash_aliases is alrady created.
 echo "Setting $ALIASFILE..."
 if test -f "$ALIASFILE"; then
-	echo "$ALIASFILE already exists! Can't set custom profile."; exit
+	echo "$ALIASFILE already exists! Can't set custom profile."; exit 1
 else
 	echo "$ALIASFILE does not exists."
 	sleep 1
@@ -33,8 +33,8 @@ echo "$ALIASFILE created successfully."
 fi
 
 # Check if .bashrc is already created
-if test -f "$BASHRFILE"; then
-	echo "$BASHRCFILE already exists! Can't set custom profile."; exit
+if test -f "$BASHRCFILE"; then
+	echo "$BASHRCFILE already exists! Can't set custom profile."; exit 1
 else
 	echo "$BASHRCFILE does not exists."
 	sleep 1
@@ -43,7 +43,7 @@ else
 	sleep 1
 
 	if ! test -f "$BASHRCFILE"; then
-		echo "File $BASHFILE could not be created."; exit 
+		echo "File $BASHFILE could not be created."; exit 1
 	else 
 		echo "File created created successfully."
 		sleep 1
