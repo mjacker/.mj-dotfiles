@@ -28,7 +28,7 @@ alias cputemp="sensors | grep Core"
 # MJalias
 alias mja="cat ~/.bash_aliases"
 alias emja="vim ~/.bash_aliases"
-alias smja="source ~/.bash_aliases"
+alias smja="source ~/.bash_aliases && . ~/.bash_update"
 
 # Paths
 # alias caps="cd /data/data/com.termux/files/home/mjtermux/01_mjcapstone/MJCapstone"
