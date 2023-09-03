@@ -18,6 +18,9 @@ alias lm="ls | more"
 alias la="ls -alFh --group-directories-firs"
 alias cls="clear"
 
+# Network
+# alias ping="ping -c 10"
+
 # space disk
 alias df="df -h"
 alias du="du -h"
@@ -28,7 +31,8 @@ alias cputemp="sensors | grep Core"
 # MJalias
 alias mja="cat ~/.bash_aliases"
 alias emja="vim ~/.bash_aliases"
-alias smja="source ~/.bash_aliases && . ~/.bash_update"
+alias smja="source ~/.bash_aliases"
+alias umja="~/.bash_update"
 
 # Paths
 # alias caps="cd /data/data/com.termux/files/home/mjtermux/01_mjcapstone/MJCapstone"
