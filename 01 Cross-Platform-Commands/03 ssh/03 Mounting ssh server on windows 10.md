@@ -26,6 +26,8 @@ Go to Control Panel > System and Security > Administrative Tools and open Servic
 reference
 https://tiim.ch/blog/2022-03-ssh-windows-wsl
 
+Get online module:
+`Get-WindowsCapability -Online | Where-Object Name -like "OpenSSh"`
 
 Open pwsh with administrator rights
 - Installing client and server 
