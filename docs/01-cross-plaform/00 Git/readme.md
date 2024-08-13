@@ -65,5 +65,8 @@
 	 `git remote show origin`
 
 ### Remote branches
+    Pull remote new branch to new branch local
+        `git checkout -b myBranchName repo2/master`
 	Delete remote branch:
 		`git push --delete <remote name> <branch name>
+
