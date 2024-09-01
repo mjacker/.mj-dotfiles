@@ -24,8 +24,6 @@
 #>
 
 ## DIR 
-# function Get-ListS { Get-ChildItem -Name }
-# function Get-ListAttrib{ Get-ChildItem }
 # function Get-LsKali () { wsl ls --color=auto -hF $args }
 
 # function Push-Mja ([string]$comment){ 
@@ -65,8 +63,9 @@ New-Alias -Name emjp Edit-pwsh-profile
 function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
 # Remove-Alias -Name ls #because can't overrride it
 # New-Alias -Name ls Get-ListS
-New-Alias -Name ll Get-ListAttrib
-# New-Alias -Name l Get-ListAttrib
+#
+function Get-ListS { Get-ChildItem -Name }; New-Alias -Name l Get-ListAttrib
+function Get-ListAttrib{ Get-ChildItem }; New-Alias -Name ll Get-ListAttrib
 # New-Alias -Name im Import-Module 
 # New-Alias -Name sm mjshowMarkdown 
 # New-alias -Name lk -Value Get-LsKali -Option AllScope
