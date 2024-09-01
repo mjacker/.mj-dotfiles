@@ -56,8 +56,9 @@ function Go-path-mjbrain{ cd $mjbrain }; New-Alias -Name brain Go-path-mjbrain
 function Go-path-mjcs{ cd $mjcs }; New-Alias -Name mjcs Go-path-mjcs 
 function Go-path-mjsc{ cd $mjsc }; New-Alias -Name mjsc Go-path-mjsc 
 
-function Edit-pwsh-profile  (){ nvim "nvim $PROFILE" }
-New-Alias -Name emjp Edit-pwsh-profile
+# Edit Powershell Profile
+function Edit-pwsh-profile  (){ nvim $PROFILE } New-Alias -Name epp Edit-pwsh-profile
+function Edit-mjpwsh-profile  (){ nvim "~\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1" } New-Alias -Name empp Edit-mjpwsh-profile
 
 ## From PowerShell
 function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
@@ -72,10 +73,14 @@ function Get-ListAttrib{ Get-ChildItem }; New-Alias -Name ll Get-ListAttrib
 
 
 # Git
-function Get-GitStatus () { git status } New-Alias -Name gs -Value Get-GitStatus
-function Get-GitLog () { git log --all --oneline --graph --decorate } New-Alias -Name glo -Value Get-GitLog
-function Get-FilesPushed () { git ls-tree -r --name-only master }                       New-Alias -Name gfp -Value Get-FilesPushed
+function Get-GitStatus ()    { git status }    New-Alias -Name gs -Value Get-GitStatus
+function Get-GitLog ()       { git log --all --oneline --graph --decorate } New-Alias -Name glo -Value Get-GitLog
+function Get-FilesPushed ()  { git ls-tree -r --name-only master } New-Alias -Name gfp -Value Get-FilesPushed
 function Get-GitBranchAll () { git branch -a } New-Alias -Name gba -Value Get-GitBranchAll
+function Get-GitDiff ()      { git diff }      New-Alias -Name gd -Value Get-GitDiff
+function Set-GitCommit (
+	[string] $msg
+	)    { git commit -m $msg} New-Alias -Name gco -Value Set-GitCommit 
 
 ## Jobs - Section
 # New-Alias -Name jobs -value Get-Job
