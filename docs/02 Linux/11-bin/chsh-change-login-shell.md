@@ -1,2 +1,0 @@
-# chsh
-Change login shell
