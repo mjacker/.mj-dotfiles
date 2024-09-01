@@ -58,7 +58,7 @@ function Go-path-mjsc{ cd $mjsc }; New-Alias -Name mjsc Go-path-mjsc
 
 # Edit Powershell Profile
 function Edit-pwsh-profile  (){ nvim $PROFILE } New-Alias -Name epp Edit-pwsh-profile
-function Edit-mjpwsh-profile  (){ nvim "~\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1" } New-Alias -Name empp Edit-mjpwsh-profile
+function Edit-mjpwsh-profile  (){ nvim $env:HOMEPATH\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1 } New-Alias -Name empp Edit-mjpwsh-profile
 
 ## From PowerShell
 function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
