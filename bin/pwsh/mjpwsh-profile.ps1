@@ -81,6 +81,7 @@ function Get-GitDiff ()      { git diff }      New-Alias -Name gd -Value Get-Git
 function Set-GitCommit (
 	[string] $msg
 	)    { git commit -m $msg} New-Alias -Name gco -Value Set-GitCommit 
+function Set-GitPush ()      { git push }      New-Alias -Name gpu -Value Set-GitPush
 
 ## Jobs - Section
 # New-Alias -Name jobs -value Get-Job
