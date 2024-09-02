@@ -61,7 +61,8 @@ function Edit-pwsh-profile  (){ nvim $PROFILE } New-Alias -Name epp Edit-pwsh-pr
 function Edit-mjpwsh-profile  (){ nvim $env:HOMEPATH\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1 } New-Alias -Name empp Edit-mjpwsh-profile
 function Push-mjpwsh-profile  (){ 
 	git add $env:HOMEPATH\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1;
-	git commit -m "Updated mjpwsh-profile." } New-Alias -Name pmpp Push-mjpwsh-profile
+	git commit -m "Updated mjpwsh-profile.";
+	git push} New-Alias -Name pmpp Push-mjpwsh-profile
 
 ## From PowerShell
 function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
