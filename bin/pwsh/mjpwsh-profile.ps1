@@ -23,27 +23,6 @@
     Moving Configuration to on-my-posh windows terminal
 #>
 
-## DIR 
-# function Get-LsKali () { wsl ls --color=auto -hF $args }
-
-# function Push-Mja ([string]$comment){ 
-# 	cd "D:\_Jaime\_GIT\04_MJGITs\08 (git) PowerShell\Scripts\00 mjaliases\";
-# 	git add "D:\_Jaime\_GIT\04_MJGITs\08 (git) PowerShell\Scripts\00 mjaliases\mja.ps1";
-# 	git commit -m $comment;
-# 	git push
-# 	cd -
-# } ; New-Alias -Name pmja Push-Mja
-
-## Virtual machine
-# function Run-VM { pwsh "D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science\virtualmachine\Virtualbox\00 Scripts\runmjvm.ps1" }
-# function Stop-VM { pwsh "D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science\virtualmachine\Virtualbox\00 Scripts\runmjvm.ps1" }
-# function GetList-VM { pwsh "D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science\virtualmachine\Virtualbox\00 Scripts\runmjvm.ps1" }
-# New-Alias -Name runvm Run-VM
-# New-Alias -Name stopvm Stop-VM
-# New-Alias -Name getvm GetList-VM
-# New-Alias -Name grep findstr
-
-
 ## PATH-ALIAS
 $mjbrain="D:\_Jaime\_GIT\04_MJGITs\mjbrain"
 $mjcs="D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science"
@@ -60,9 +39,11 @@ function Go-path-mjsc{ cd $mjsc }; New-Alias -Name mjsc Go-path-mjsc
 function Edit-pwsh-profile  (){ nvim $PROFILE } New-Alias -Name epp Edit-pwsh-profile
 function Edit-mjpwsh-profile  (){ nvim $env:HOMEPATH\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1 } New-Alias -Name empp Edit-mjpwsh-profile
 function Push-mjpwsh-profile  (){ 
+	cd $env:HOMEPATH\.mj-dotfiles\
 	git add $env:HOMEPATH\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1;
 	git commit -m "Updated mjpwsh-profile.";
-	git push} New-Alias -Name pmpp Push-mjpwsh-profile
+	git push
+	cd -} New-Alias -Name pmpp Push-mjpwsh-profile
 
 ## From PowerShell
 function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
@@ -91,7 +72,18 @@ function Set-GitPush ()      { git push }      New-Alias -Name gpu -Value Set-Gi
 function Run-NeoVim (
 	[string] $param
 	)       { nvim $param } New-Alias -Name vim -Value Run-NeoVim
+function Run-Sudo (
+	[string] $program
+	)       { Start-Process $program -Verb runAs } New-Alias -Name sudo -Value Run-Sudo
 
 ## Jobs - Section
 # New-Alias -Name jobs -value Get-Job
 
+## Virtual machine
+# function Run-VM { pwsh "D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science\virtualmachine\Virtualbox\00 Scripts\runmjvm.ps1" }
+# function Stop-VM { pwsh "D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science\virtualmachine\Virtualbox\00 Scripts\runmjvm.ps1" }
+# function GetList-VM { pwsh "D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science\virtualmachine\Virtualbox\00 Scripts\runmjvm.ps1" }
+# New-Alias -Name runvm Run-VM
+# New-Alias -Name stopvm Stop-VM
+# New-Alias -Name getvm GetList-VM
+# New-Alias -Name grep findstr
