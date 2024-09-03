@@ -7,7 +7,7 @@ if ($host.Name -eq 'ConsoleHost')
 }
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
-Set-PSReadLineOption -EditMode Windows
+Set-PSReadLineOption -EditMode Vi
 
 Import-Module ~\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1
 
