@@ -37,6 +37,12 @@ function Go-path-mjsc{ cd $mjsc }; New-Alias -Name mjsc Go-path-mjsc
 
 # Edit Powershell Profile
 function Edit-pwsh-profile  (){ nvim $PROFILE } New-Alias -Name epp Edit-pwsh-profile
+function Push-pwsh-profile  (){ 
+	cd $env:HOMEPATH\.mj-dotfiles\
+	git add $env:HOMEPATH\.mj-dotfiles\bin\pwsh\hardlink-this-Microsoft.PowerShell_profile.ps1.ps1;
+	git commit -m "Updated pwsh-profile.";
+	git push
+	cd -} New-Alias -Name pmpp Push-mjpwsh-profile
 function Edit-mjpwsh-profile  (){ nvim $env:HOMEPATH\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1 } New-Alias -Name empp Edit-mjpwsh-profile
 function Push-mjpwsh-profile  (){ 
 	cd $env:HOMEPATH\.mj-dotfiles\
