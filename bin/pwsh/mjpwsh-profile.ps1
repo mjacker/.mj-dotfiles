@@ -42,7 +42,7 @@ function Push-pwsh-profile  (){
 	git add $env:HOMEPATH\.mj-dotfiles\bin\pwsh\hardlink-this-Microsoft.PowerShell_profile.ps1.ps1;
 	git commit -m "Updated pwsh-profile.";
 	git push
-	cd -} New-Alias -Name pmpp Push-mjpwsh-profile
+	cd -} New-Alias -Name ppp Push-mjpwsh-profile
 function Edit-mjpwsh-profile  (){ nvim $env:HOMEPATH\.mj-dotfiles\bin\pwsh\mjpwsh-profile.ps1 } New-Alias -Name empp Edit-mjpwsh-profile
 function Push-mjpwsh-profile  (){ 
 	cd $env:HOMEPATH\.mj-dotfiles\
