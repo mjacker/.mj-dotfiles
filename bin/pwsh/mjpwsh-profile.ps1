@@ -48,14 +48,9 @@ function Push-mjpwsh-profile  (){
 ## From PowerShell
 function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
 # Remove-Alias -Name ls #because can't overrride it
-# New-Alias -Name ls Get-ListS
-#
 function Get-ListS { Get-ChildItem -Name }; New-Alias -Name l Get-ListAttrib
 function Get-ListAttrib{ Get-ChildItem }; New-Alias -Name ll Get-ListAttrib
-# New-Alias -Name im Import-Module 
-# New-Alias -Name sm mjshowMarkdown 
-# New-alias -Name lk -Value Get-LsKali -Option AllScope
-
+function Get-Clear-Ls {Clear-Host; Get-ChildItem }; New-Alias -Name cl Get-Clear-Ls
 
 # Git
 function Get-GitStatus ()    { git status }    New-Alias -Name gs -Value Get-GitStatus
@@ -68,7 +63,7 @@ function Set-GitCommit (
 	)    { git commit -m $msg} New-Alias -Name gco -Value Set-GitCommit 
 function Set-GitPush ()      { git push }      New-Alias -Name gpu -Value Set-GitPush
 
-# Vim
+# Funtions
 function Run-NeoVim (
 	[string] $param
 	)       { nvim $param } New-Alias -Name vim -Value Run-NeoVim
