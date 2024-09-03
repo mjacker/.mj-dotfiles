@@ -24,10 +24,10 @@
 #>
 
 ## PATH-ALIAS
-$mjbrain="D:\_Jaime\_GIT\04_MJGITs\mjbrain"
-$mjcs="D:\_Jaime\_GIT\04_MJGITs\01 MJComputer Science"
-$capst="D:\_Jaime\02 UPTP\_CLASES\06 SEXTO SEMESTRE\07 CAPSOTNE"
-$mjsc="D:\_Jaime\_GIT\04_MJGITs\00 (git) Commands\00Scripts"
+$mjbrain="D:\_mjacker\_GIT\04_MJGITs\mjbrain"
+$mjcs="D:\_mjacker\_GIT\04_MJGITs\01 MJComputer Science"
+$capst="D:\_mjacker\02 UPTP\_CLASES\06 SEXTO SEMESTRE\07 CAPSOTNE"
+$mjsc="D:\_mjacker\_GIT\04_MJGITs\00 (git) Commands\00Scripts"
 function Go-path-gits { cd $gits }; New-Alias -Name gits Go-path-gits
 function Go-path-capstone { cd $capst }; New-Alias -Name caps Go-path-capstone
 function Go-path-mjbrain{ cd $mjbrain }; New-Alias -Name mjbrain Go-path-mjbrain
@@ -64,18 +64,13 @@ function Get-GitLog ()       { git log --all --oneline --graph --decorate } New-
 function Get-FilesPushed ()  { git ls-tree -r --name-only master } New-Alias -Name gfp -Value Get-FilesPushed
 function Get-GitBranchAll () { git branch -a } New-Alias -Name gba -Value Get-GitBranchAll
 function Get-GitDiff ()      { git diff }      New-Alias -Name gd -Value Get-GitDiff
-function Set-GitCommit (
-	[string] $msg
-	)    { git commit -m $msg} New-Alias -Name gco -Value Set-GitCommit 
+function Set-GitAdd    ([string] $filename)    { git add $filename} New-Alias -Name ga -Value Set-GitAdd
+function Set-GitCommit ([string] $msg)         { git commit -m $msg} New-Alias -Name gco -Value Set-GitCommit
 function Set-GitPush ()      { git push }      New-Alias -Name gpu -Value Set-GitPush
 
 # Funtions
-function Run-NeoVim (
-	[string] $param
-	)       { nvim $param } New-Alias -Name vim -Value Run-NeoVim
-function Run-Sudo (
-	[string] $program
-	)       { Start-Process $program -Verb runAs } New-Alias -Name sudo -Value Run-Sudo
+function Run-NeoVim  ( [string] $param) { nvim $param } New-Alias -Name vim -Value Run-NeoVim
+function Run-Sudo		( [string] $program) { Start-Process $program -Verb runAs } New-Alias -Name sudo -Value Run-Sudo
 
 ## Jobs - Section
 # New-Alias -Name jobs -value Get-Job
