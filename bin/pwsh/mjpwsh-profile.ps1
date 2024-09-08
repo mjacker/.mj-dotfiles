@@ -56,6 +56,7 @@ function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
 # Remove-Alias -Name ls #because can't overrride it
 function Get-ListS { Get-ChildItem -Name }; New-Alias -Name l Get-ListAttrib
 function Get-ListAttrib{ Get-ChildItem }; New-Alias -Name ll Get-ListAttrib
+function Get-ListAttrib{ Get-ChildItem -Force}; New-Alias -Name la Get-ListAttrib
 function Get-Clear-Ls {Clear-Host; Get-ChildItem }; New-Alias -Name cl Get-Clear-Ls
 
 # Git
