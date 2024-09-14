@@ -56,11 +56,13 @@ function Cd-back-back { cd .. }; New-Alias -Name ".." Cd-back-back
 # Remove-Alias -Name ls #because can't overrride it
 function Get-ListS { Get-ChildItem -Name }; New-Alias -Name l Get-ListAttrib
 function Get-ListAttrib{ Get-ChildItem }; New-Alias -Name ll Get-ListAttrib
+function Get-ListAttrib{ Get-ChildItem -Force}; New-Alias -Name la Get-ListAttrib
 function Get-Clear-Ls {Clear-Host; Get-ChildItem }; New-Alias -Name cl Get-Clear-Ls
 
 # Git
 function Get-GitStatus ()    { git status }    New-Alias -Name gs -Value Get-GitStatus
 function Get-GitLog ()       { git log --all --oneline --graph --decorate } New-Alias -Name glo -Value Get-GitLog
+function Get-GitLog-N ( [int] $nlines ){ git log --all --oneline -n $nlines --graph --decorate } New-Alias -Name glon -Value Get-GitLog-N
 function Get-FilesPushed ()  { git ls-tree -r --name-only master } New-Alias -Name gfp -Value Get-FilesPushed
 function Get-GitBranchAll () { git branch -a } New-Alias -Name gba -Value Get-GitBranchAll
 function Get-GitDiff ()      { git diff }      New-Alias -Name gd -Value Get-GitDiff
