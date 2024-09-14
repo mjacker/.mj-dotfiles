@@ -58,6 +58,7 @@ function Get-ListS { Get-ChildItem -Name }; New-Alias -Name l Get-ListAttrib
 function Get-ListAttrib{ Get-ChildItem }; New-Alias -Name ll Get-ListAttrib
 function Get-ListAttrib{ Get-ChildItem -Force}; New-Alias -Name la Get-ListAttrib
 function Get-Clear-Ls {Clear-Host; Get-ChildItem }; New-Alias -Name cl Get-Clear-Ls
+function Clear-Host-c {Clear-Host}; New-Alias -Name c Clear-Host-c
 
 # Git
 function Get-GitStatus ()    { git status }    New-Alias -Name gs -Value Get-GitStatus
