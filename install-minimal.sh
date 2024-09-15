@@ -2,6 +2,7 @@
 
 programs=( \
 	"curl" \
+	"ssh" \
 	"vim" \
 	"git")
 
