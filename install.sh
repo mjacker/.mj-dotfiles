@@ -22,7 +22,6 @@ install_package(){
 	echo "------"
 	if command_exists nala; then
 		echo "Package manager: nala"
-		nala update && nala upgrade -y
 		if command_exists $1; then
 			echo "command $1 installed"
 		else
@@ -31,7 +30,6 @@ install_package(){
 		fi
 	elif command_exists apt-get; then
 		echo "Package manager: apt-get:"
-		apt-get update && apt-get upgrade -y
 		if command_exists $1; then
 			echo "command $1 installed"
 		else
@@ -60,6 +58,12 @@ if [ $# -gt 0 ]; then
 	    done
     fi
 else
+    if command_exists nala; then
+    	echo "Package manager: nala"
+    	nala update && nala upgrade -y
+    elif command_exists apt-get
+	apt-get update && apt-get upgrade -y
+    fi
     for program in "${programs[@]}"; do
 	install_package $program
     done
