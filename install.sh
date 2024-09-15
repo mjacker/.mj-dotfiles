@@ -61,7 +61,7 @@ else
     if command_exists nala; then
     	echo "Package manager: nala"
     	nala update && nala upgrade -y
-    elif command_exists apt-get
+    elif command_exists apt-get; then
 	apt-get update && apt-get upgrade -y
     fi
     for program in "${programs[@]}"; do
