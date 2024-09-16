@@ -10,7 +10,12 @@ programs=( \
 	"nala" \
 	"neovim" \
 	"tmux" \
-	"git")
+	"git" \
+	"wl-clipboard" \
+	"gnupg" \
+	"pass" \
+	"w3m"
+	)
 
 # apt install git vim tmux htop
 command_exists() {
