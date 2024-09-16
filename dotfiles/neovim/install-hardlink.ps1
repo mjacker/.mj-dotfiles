@@ -10,7 +10,8 @@
 
 if (!(Test-Path -Path $env:LOCALAPPDATA\nvim\init.vim )){
 	# New-Item -ItemType File -Path $env:LOCALAPPDATA\nvim\init.vim -Force
-        New-Item -Path $env:LOCALAPPDATA\nvim\init.vim -ItemType HardLink -Target ~\.mj-dotfiles\bin\neoVim\init.vim
+        New-Item -Path $env:LOCALAPPDATA\nvim\init.vim -ItemType HardLink -Target ~\.mj-dotfiles\dotfiles\neovim\init.vim
+        # New-Item -Path $env:LOCALAPPDATA\nvim\init.vim -ItemType SymbolicLink -Target ~\.mj-dotfiles\neovim\init.vim
 }
 else
 {
