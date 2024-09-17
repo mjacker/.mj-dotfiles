@@ -8,6 +8,22 @@ if command -v tmux &> /dev/null && \
 	tmux a || exec tmux 
 fi
 
+# Add a directory to PATH
+ohmyposh_to_path() {
+    local dir="$1"
+    if [[ ":$PATH:" != *":$dir:"* ]]; then
+        export PATH="$PATH:$dir"
+    fi
+}
+if [ -f ~/.local/bin/oh-my-posh ]; then
+	ohmyposh_to_path "~/.local/bin/"
+fi
+
+# oh-my-posh config
+PATH=$PATH:/home/mjubuntu/.local/bin
+# eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/lightgreen.omp.json)"
+eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/atomicBit.omp.json)"
+
 # Use vim keybinds
 set -o vi
 
