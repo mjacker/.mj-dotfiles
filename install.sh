@@ -17,7 +17,6 @@ programs=( \
 	"w3m"
 	)
 
-# apt install git vim tmux htop
 command_exists() {
 	command -v "$1" > /dev/null 2>&1
 }
