@@ -1,3 +1,13 @@
+if command -v tmux &> /dev/null && \
+	[ -n "$PS1" ] && \
+	[[ ! "$TERM" =~ screen ]] && \
+	[[ ! "$TERM" =~ tmux ]] && \
+	[ -z "$TMUX" ]; then
+  	# exec tmux
+	# tmux a -t default || exec tmux new -s default && exit;
+	tmux a || exec tmux 
+fi
+
 # Use vim keybinds
 set -o vi
 
