@@ -5,4 +5,5 @@ winget install Microsoft.Sysinternals.ZoomIt
 winget install JAMSoftware.TreeSize.Free
 winget install Neovim.Neovim
 winget install JanDeDobbeleer.OhMyPosh
+winget install Discord.Discord
 # winget install aristocratos.btop4win
