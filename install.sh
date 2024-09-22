@@ -11,7 +11,7 @@ programs=( \
 	"neovim" \
 	"tmux" \
 	"git" \
-	"wl-clipboard" \
+	# "wl-clipboard" \ # This install gcc and x11, 126 packages 300mb 
 	"gnupg" \
 	"pass" \
 	"w3m"
