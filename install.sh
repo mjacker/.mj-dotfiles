@@ -15,7 +15,9 @@ programs=( \
 	"gnupg" \
 	"pass" \
 	"fzf" \
-	"w3m"
+	"w3m" \
+   # for lua = gcc
+  "build-essential" \
 	)
 
 command_exists() {
