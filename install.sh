@@ -8,7 +8,8 @@ programs_minimal=( \
 programs=( \
 	"curl" \
 	"nala" \
-	"neovim" \
+	"vim" \
+  # "neovim" \ # I am using a neovim pre-released >= 0.8.0, install from shell
 	"tmux" \
 	"git" \
 	# "wl-clipboard" \ # This install gcc and x11, 126 packages 300mb 

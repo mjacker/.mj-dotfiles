@@ -24,6 +24,9 @@ PATH=$PATH:/home/mjubuntu/.local/bin
 # eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/lightgreen.omp.json)"
 # eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/atomicBit.omp.json)"
 
+# fasd
+eval "$(fasd --init auto)"
+
 # Use vim keybinds
 set -o vi
 
