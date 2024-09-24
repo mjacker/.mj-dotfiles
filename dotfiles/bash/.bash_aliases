@@ -36,6 +36,7 @@ alias gfp="git ls-tree -r --name-only master"
 alias gs='git status'
 alias gsu='git status -u'
 alias gd='git diff'
+alias gpu='git push'
 
 # Change directory aliases
 alias home='cd ~'
