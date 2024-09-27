@@ -4,8 +4,8 @@ if command -v tmux &> /dev/null && \
 	[[ ! "$TERM" =~ tmux ]] && \
 	[ -z "$TMUX" ]; then
   	# exec tmux
-	# tmux a -t default || exec tmux new -s default && exit;
-	tmux a || exec tmux 
+	tmux a -t mjtmux || exec tmux new -s mjtmux && exit;
+	# tmux a || exec tmux 
 fi
 
 # Add a directory to PATH

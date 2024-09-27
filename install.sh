@@ -13,6 +13,7 @@ programs=( \
 	"tmux" \
 	"git" \
 	# "wl-clipboard" \ # This install gcc and x11, 126 packages 300mb 
+    # now i can not copy text from vim :c
 	"gnupg" \
 	"pass" \
 	"fzf" \
