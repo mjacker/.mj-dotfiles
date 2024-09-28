@@ -4,8 +4,8 @@ if command -v tmux &> /dev/null && \
 	[[ ! "$TERM" =~ tmux ]] && \
 	[ -z "$TMUX" ]; then
   	# exec tmux
-	# tmux a -t default || exec tmux new -s default && exit;
-	tmux a || exec tmux 
+	tmux a -t mjtmux || exec tmux new -s mjtmux && exit;
+	# tmux a || exec tmux 
 fi
 
 # Add a directory to PATH
@@ -22,7 +22,10 @@ fi
 # oh-my-posh config
 PATH=$PATH:/home/mjubuntu/.local/bin
 # eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/lightgreen.omp.json)"
-eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/atomicBit.omp.json)"
+# eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/atomicBit.omp.json)"
+
+# fasd
+eval "$(fasd --init auto)"
 
 # Use vim keybinds
 set -o vi
@@ -33,6 +36,7 @@ alias gfp="git ls-tree -r --name-only master"
 alias gs='git status'
 alias gsu='git status -u'
 alias gd='git diff'
+alias gpu='git push'
 
 # Change directory aliases
 alias home='cd ~'

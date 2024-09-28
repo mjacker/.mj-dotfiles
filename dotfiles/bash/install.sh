@@ -1,1 +1,2 @@
-ln -s .bash_aliases ~/.bash_aliases
+
+ln -s ${PWD}/.bash_aliases ~/.bash_aliases

@@ -8,13 +8,18 @@ programs_minimal=( \
 programs=( \
 	"curl" \
 	"nala" \
-	"neovim" \
+	"vim" \
+  # "neovim" \ # I am using a neovim pre-released >= 0.8.0, install from shell
 	"tmux" \
 	"git" \
-	"wl-clipboard" \
+	# "wl-clipboard" \ # This install gcc and x11, 126 packages 300mb 
+    # now i can not copy text from vim :c
 	"gnupg" \
 	"pass" \
-	"w3m"
+	"fzf" \
+	"w3m" \
+   # for lua = gcc
+  "build-essential" \
 	)
 
 command_exists() {
