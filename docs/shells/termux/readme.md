@@ -5,6 +5,8 @@
 `$tmux ls`
 3. Attach specific session`
 `$tmux a -t <session-name>
+4. Start a new session
+`$tmux new -s <name>`
 
 # Termux shortcuts
 
