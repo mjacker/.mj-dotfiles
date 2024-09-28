@@ -37,6 +37,7 @@ alias gs='git status'
 alias gsu='git status -u'
 alias gd='git diff'
 alias gpu='git push'
+alias bare="/usr/bin/git --git-dir=$HOME/kwu32.git --work-tree=$HOME"
 
 # Change directory aliases
 alias home='cd ~'
