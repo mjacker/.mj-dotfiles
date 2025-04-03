@@ -7,6 +7,7 @@ programs_minimal=( \
 
 programs=( \
 	"curl" \
+  "zsh" \ 
 	"nala" \
 	"vim" \
   # "neovim" \ # I am using a neovim pre-released >= 0.8.0, install from shell
@@ -26,6 +27,7 @@ installers=( \
   "nala" \
   "apt-get" \
   "pkg" \
+  "apk"
 )
 command_exists() {
 	command -v "$1" >/dev/null 2>&1

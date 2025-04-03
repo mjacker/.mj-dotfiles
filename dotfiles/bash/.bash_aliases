@@ -1,12 +1,13 @@
-if command -v tmux &> /dev/null && \
-	[ -n "$PS1" ] && \
-	[[ ! "$TERM" =~ screen ]] && \
-	[[ ! "$TERM" =~ tmux ]] && \
-	[ -z "$TMUX" ]; then
-  	# exec tmux
-	tmux a -t mjtmux || exec tmux new -s mjtmux && exit;
-	# tmux a || exec tmux 
-fi
+# Running tmux at bash starts
+# if command -v tmux &> /dev/null && \
+# 	[ -n "$PS1" ] && \
+# 	[[ ! "$TERM" =~ screen ]] && \
+# 	[[ ! "$TERM" =~ tmux ]] && \
+# 	[ -z "$TMUX" ]; then
+#   	# exec tmux
+# 	tmux a -t mjtmux || exec tmux new -s mjtmux && exit;
+# 	# tmux a || exec tmux 
+# fi
 
 # Add a directory to PATH
 ohmyposh_to_path() {
@@ -49,6 +50,7 @@ alias ......="cd ../../.."
 alias ll="ls -laho"
 alias lm="ls | more"
 alias la="ls -alFh --group-directories-firs"
+alias lc="ls --color=never"
 alias cls="clear"
 alias c="clear"
 alias cc="clear"

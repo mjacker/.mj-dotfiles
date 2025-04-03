@@ -1,8 +1,8 @@
+vim.g.mapleader = " "
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2 ")
-vim.g.mapleader = " "
 
 vim.cmd("set number")
 vim.cmd("set relativenumber")
@@ -17,6 +17,12 @@ vim.cmd("highlight NonText guibg=none")
 vim.cmd("highlight Normal ctermbg=none")
 vim.cmd("highlight NonText ctermbg=none")
 
+-- Use Windows clipboard
+vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-v>', '"+p', { noremap = true, silent = true })
+
+
+-- Lazy vim package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
    vim.fn.system({
@@ -28,10 +34,10 @@ if not vim.loop.fs_stat(lazypath) then
       lazypath,
    })
 end
-
 vim.opt.rtp:prepend(lazypath)
+-- /Lazy --
 
-
+-- Plugins
 local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
@@ -47,7 +53,8 @@ local plugins = {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
-  }
+  },
+    "christoomey/vim-tmux-navigator",
 }
 local opts = {}
 
