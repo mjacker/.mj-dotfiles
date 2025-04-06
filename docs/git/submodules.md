@@ -20,4 +20,9 @@ Deleting a submodule from current folder.
 `git rm <folder>`
 
 
+### How to update after cloning just the main repo
 
+```
+git clone https://github.com/mjacker/MJCSIE
+git submodule  update --init
+```
