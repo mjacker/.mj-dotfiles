@@ -3,4 +3,4 @@
 	url = git@github.com:mjacker/submodule-sample.git
 [submodule "docs/vim"]
 	path = docs/vim
-	url = https://github.com/mjacker/MJVim
+	url = git@github.com:mjacker/MJVim.git
