@@ -19,6 +19,12 @@ Deleting a submodule from current folder.
 
 `git rm <folder>`
 
+## Change submodule URL from HTTPS to SSH
+
+`git config -f git config -f .gitmodules submodule.docs/vim.url git@github.com:mjacker/MJVim.git`
+
+`git submodule sync`
+
 
 ### How to update after cloning just the main repo
 
