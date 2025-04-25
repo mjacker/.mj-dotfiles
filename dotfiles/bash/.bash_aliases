@@ -34,6 +34,7 @@ set -o vi
 # Git alias
 alias glo="git log --all --oneline --graph --decorate"
 alias gfp="git ls-tree -r --name-only master"
+alias gcm="git commit -m"
 alias gs='git status'
 alias gsu='git status -u'
 alias gd='git diff'
