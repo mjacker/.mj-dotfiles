@@ -17,6 +17,9 @@ due:
 +linux
 ```
 
+Show calendar
+`task calendar`
+
 # Projects
 
 ```
