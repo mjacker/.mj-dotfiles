@@ -1,3 +1,6 @@
 [submodule "docs/git/submodule-sample"]
 	path = docs/git/submodule-sample
 	url = git@github.com:mjacker/submodule-sample.git
+[submodule "docs/vim"]
+	path = docs/vim
+	url = https://github.com/mjacker/MJVim
