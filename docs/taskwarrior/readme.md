@@ -33,3 +33,6 @@ task add Edit the footage project:video
 # Exports
 
 task export > task.json
+
+---
+Check more info at [link](https://www.youtube.com/watch?v=5BU2gBOe9RU)
