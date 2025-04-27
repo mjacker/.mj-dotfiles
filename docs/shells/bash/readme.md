@@ -9,6 +9,6 @@ Bash for bash-scripting.
 
 - Bash Pitfalls:
 A page with compilation of common mistakes made by bash users.
-[My wifi](http://mywiki.wooledge.org/BashPitfalls)
+[mywiki.wooledge.org](http://mywiki.wooledge.org/BashPitfalls)
 
 
