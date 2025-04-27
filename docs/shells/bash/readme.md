@@ -5,7 +5,6 @@ Bash for bash-scripting.
 
 # How to build your own scripts library
 [![Watch the video](https://img.youtube.com/vi/D2pe9ZZ2yCE/0.jpg)](https://www.youtube.com/watch?v=D2pe9ZZ2yCE)
-[![Watch the video](https://img.youtube.com/vi/_5tFXJQIzi4/0.jpg)](https://www.youtube.com/watch?v=_5tFXJQIzi4)
 
 - Styleguide. A good place to start for bash scripting Authored, revised and maintained by many Googlers.
 [google.github.io](https://google.github.io/styleguide/shellguide.html)
