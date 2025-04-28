@@ -17,3 +17,7 @@ A page with compilation of common mistakes made by bash users.
 
 - Explain shell
 [explainshell.com/](https://explainshell.com/)
+
+
+- Awesome shell
+[github.com](https://github.com/alebcay/awesome-shell?tab=readme-ov-file)
