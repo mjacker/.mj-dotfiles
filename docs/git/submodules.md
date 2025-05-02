@@ -4,6 +4,9 @@ Submodules allow you to keep a Git repository as a subdirectory of another Git r
 Adding a submodule:
 `git submodule add https://github.com/example/foo.git`
 
+Adding a submodule with a DesiredFolder name
+`git submodule add https://github.com/example/foo.git DesiredFolderName`
+
 Status
 `git submodule status`
 
