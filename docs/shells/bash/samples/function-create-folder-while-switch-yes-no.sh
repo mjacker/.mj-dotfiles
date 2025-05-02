@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This functions return an bolean true or false depending of the user inputs
+# Receives a string as a parameter to print in the termial when the
+# argument is reading.
+
 continue_yes_no(){
   local input="$1"
   local answer
