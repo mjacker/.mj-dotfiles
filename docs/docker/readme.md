@@ -6,18 +6,30 @@
 - pulling image: `docker pull <image>`
 - deleting: `docker rmi <name>`
 
+# Build 
+Usually refers from a Dockerfile, it creates and names an image
+`docker build .`: Look for Dockerfile in current directory and build it.
+`docker build -t my-image-name[:tag] .`
+`-t`: tag
+
 # container
+Create a container without runing it
 - creating container: 
-    `docker container ls -a` 
-    `docker create <image>`
-    `docker container create <image>`
-    `docker container create --name monguito mongo`
-    Port mapping
-    `docker container create --name monguito -p 27017:27017 mongo`
-    `docker container start <id/monguito>` / 
-    `docker start <id/monguito>`
-    `docker stop <id/name>`
-    `docker rm <id/name>`
+`docker create <image>`
+`docker container create <image>`
+`docker container create --name container_name mongo`
+`docker container ls -a` 
+- Port mapping
+`docker container start <id/monguito>` / 
+`docker container create --name monguito -p 27017:27017 mongo`
+
+- State
+`docker start <id/monguito>`
+`docker stop <id/name>`
+`docker rm <id/name>`
+
+# Tags
+`docker tag abc123def456 my-app:latest`
 
 # Running OSs
 - running kali image into to container
