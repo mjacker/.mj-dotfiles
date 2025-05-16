@@ -1,5 +1,5 @@
-# First try: FAIL
 # Mounting a ssh server on windows 10.
+## FAIL ## First try: FAIL
 - Go to Setting > Apps > Apps & Feature > Optional feacturea > OpenSSH server.
 
 - Binaries are installed in %WINDIR%\System32\OpenSSH.
