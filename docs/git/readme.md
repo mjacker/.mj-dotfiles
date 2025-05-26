@@ -70,3 +70,8 @@
 	Delete remote branch:
 		`git push --delete <remote name> <branch name>
 
+---
+### Others
+
+Show initial commits
+`git rev-list --max-parents=0 HEAD`
