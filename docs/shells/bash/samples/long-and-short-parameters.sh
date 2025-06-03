@@ -1,36 +1,26 @@
 #!/bin/bash
+set -e
 
-build_flag=false
-b_flag=false
+# Default: don't remove volumes
+REMOVE_VOLUMES=false
 
-# Show help if no arguments are passed
-if [[ $# -eq 0 ]]; then
-  echo "Usage: $0 [OPTIONS]"
-  echo "  -b           Short flag for build"
-  echo "  --build      Long flag for build"
-  echo "  -ab          Grouped short flags"
-  exit 1
-fi
-
-# Manual parsing
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    -b) b_flag=true ;;
-    --build) build_flag=true ;;
-    -*) # Handle grouped short flags like -ab
-      chars="${1:1}"  # Remove leading "-"
-      for (( i=0; i<${#chars}; i++ )); do
-        case "${chars:$i:1}" in
-          b) b_flag=true ;;
-          *) echo "Unknown flag: -${chars:$i:1}" ;;
-        esac
-      done
+# Parse flags
+while getopts "v" opt; do
+  case $opt in
+    v)
+      REMOVE_VOLUMES=true
+      ;;
+    *)
+      echo "Usage: $0 [-v]"
+      exit 1
       ;;
   esac
-  shift
 done
 
-# Output flags
-if $b_flag; then echo "Flag -b was passed"; fi
-if $build_flag; then echo "Flag --build was passed"; fi
-
+if [ "$REMOVE_VOLUMES" = true ]; then
+  echo "🧹 Stopping development and removing volumes..."
+  docker compose --env-file .env.development -f docker-compose-development.yaml -p dev down -v
+else
+  echo "📦 Stopping development (volumes retained)..."
+  docker compose --env-file .env.development -f docker-compose-development.yaml -p dev down
+fi
