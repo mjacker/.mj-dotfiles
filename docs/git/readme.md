@@ -19,6 +19,9 @@
 	Showing current branch details:
 		`git config branch.<branch>.description`
 
+    Get Current branch name
+        `git rev-parse --abbrev-ref HEAD`
+
 ### Options for log
     git log --graph --all --oneline
 
