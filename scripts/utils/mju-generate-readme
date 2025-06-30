@@ -1,0 +1,32 @@
+
+# ## ✅ Bash Script to Generate That `README.md`
+
+#!/bin/bash
+output="README.md"
+echo "# Documentation of Scripts" > "$output"
+echo "" >> "$output"
+
+for file in *.sh; do
+  echo "---" >> "$output"
+  echo "" >> "$output"
+  echo "## $file" >> "$output"
+  echo "" >> "$output"
+
+  # Extract comments
+  description=$(grep "^#" "$file" | grep -v "^#!" | sed 's/^# *//')
+  if [[ -n "$description" ]]; then
+    echo "**Description:**" >> "$output"
+    echo "" >> "$output"
+    echo "$description" | sed 's/^/> /' >> "$output"
+    echo "" >> "$output"
+  fi
+
+  echo "**Code:**" >> "$output"
+  echo "" >> "$output"
+  echo '```bash' >> "$output"
+  # Skip the shebang and comments
+  awk '!/^#!\/bin\/bash/ && !/^#/' "$file" >> "$output"
+
+  echo '```' >> "$output"
+  echo "" >> "$output"
+done
