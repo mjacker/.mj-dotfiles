@@ -1,7 +1,7 @@
-# required check validation in ~/.bashrc
+# Required source in ~/.bashrc
 ```
 # export-mjscripts
-if [ -f ~/.mj-dotfiles/bin/exports-mjbin.sh ]; then
-  export PATH="~/.mj-dotfiles/scripts/:$PATH"
+if [ -f $HOME/.mj-dotfiles/scripts/export-mjscripts.sh ]; then
+  source "$HOME/.mj-dotfiles/scripts/export-mjscripts.sh"
 fi
 ```
