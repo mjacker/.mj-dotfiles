@@ -1,4 +1,10 @@
 #!/usr/bin/bash
+# Required in ~/.bashrc
+# # export-mjscripts
+# if [ -f $HOME/.mj-dotfiles/scripts/export-mjscripts.sh ]; then
+#   source "$HOME/.mj-dotfiles/scripts/export-mjscripts.sh"
+# fi
+
 # Add ~/.mj-dotfiles/scripts and all subfolders to PATH
 MJ_SCRIPTS="$HOME/.mj-dotfiles/scripts"
 
@@ -23,4 +29,3 @@ fi
 #   echo "Just exported the mjscripts!."
 #   export PATH="$HOME/.mj-dotfiles/scripts:$PATH"
 # fi
-# 
