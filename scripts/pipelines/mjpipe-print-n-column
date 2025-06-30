@@ -1,0 +1,14 @@
+#!/bin/bash
+# myscript_column
+
+# Check if a column number was provided
+if [[ -z "$1" || "$1" -lt 1 ]]; then
+  echo "Usage: $0 <column-number>"
+  exit 1
+fi
+
+col="$1"
+
+# Read from stdin and print the specified column
+awk -v col="$col" '{print $col}'
+

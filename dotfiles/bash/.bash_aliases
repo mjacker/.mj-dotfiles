@@ -71,6 +71,7 @@ alias smja="source ~/.bash_aliases && . ~/.bash_update"
 
 # vim
 # alias emjvim="vim ~/.vimrc"
+alias nvimf='nvim $(fzf)'
 
 # Custom apps
 alias w3g="w3m www.google.com"
