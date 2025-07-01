@@ -37,7 +37,7 @@ func_gadd() {
   git add "$@"
 }
 alias ga='func_gadd'
-func_gcm() {
+gcm() {
   git commit -m "$*"
 }
 alias gaa="git add ."
