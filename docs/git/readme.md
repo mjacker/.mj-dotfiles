@@ -1,83 +1,180 @@
-## General usage
-- Git initialize
-`git init`
-- Add files
-`git add .`
-- Commit
-`git commit -m "starting git"`
-- Remote
-`git remote add origin https://github.com/mjacker/nameBranch.git`
-`git push --set-upstream origin nameBranch`
+# Git Command Cheatsheet
 
-### Branches
---delete
-`git branch --delete <branch-name>`
-	
-Adding a comment to the current branch:
-`git branch --edit-description`
-
-Showing current branch details:
-`git config branch.<branch>.description`
-
-See Current Upstream Config
-`git branch -vv`
-
-Get Current branch name
-`git rev-parse --abbrev-ref HEAD`
-
-### Options for log
-`git log --graph --all --oneline`
-
-### Set origin remote repository
-git remote add origin https://github.com/mjacker/BranchName.git
-git set-url origin https://github.com/mjacker/BranchName.git #really need this?
-git push -u origin master
-
+A practical and clean reference for essential Git commands. This guide includes common tasks such as initializing a repository, working with branches, configuring Git, and managing remotes.
 
 ---
-## # Getting Information
-### To list all the files currently being tracked under the branch maste
-	 git ls-tree -r --name-only master
-		> -r is for recursive
 
-### Get remote URL 
-`git config --get remote.origin.url`
+## 📂 General Usage
 
-- If required full output then:
-`git remote show origin`
+### Initialize Repository
 
+```bash
+git init
+```
 
----
-### Config
-Get current config list
-`git config --list`
+### Add and Commit Files
 
-### Global Config Text editor:
-nano	~ git config --global core.editor "nano -w"~
-vim	    ~ git config --global core.editor "vim"~
+```bash
+git add .
+git commit -m "starting git"
+```
 
----
-### Remote options 
-- Display al remote urls
-`remote -v`
-- Remove url
-`git remote remove origin`
-- Add url
-`git remote add origin <url>/<repository-name>.git`
-- Update existing remote url
-`git remote set-url <remote-name> <new-url>`
-- Inspecting a Remote
-`git remote show`
-`git remote show origin`
+### Set Remote and Push to Branch
 
-### Remote branches
-Pull remote new branch to new branch local
-`git checkout -b myBranchName repo2/master`
-Delete remote branch:
-`git push --delete <remote name> <branch name>`
+```bash
+git remote add origin https://github.com/mjacker/nameBranch.git
+git push --set-upstream origin nameBranch
+```
 
 ---
-### Others
 
-Show initial commits
-`git rev-list --max-parents=0 HEAD`
+## 🌿 Branches
+
+### Delete Local Branch
+
+```bash
+git branch --delete <branch-name>
+```
+
+### Add a Description to the Current Branch
+
+```bash
+git branch --edit-description
+```
+
+### Show Description of a Specific Branch
+
+```bash
+git config branch.<branch-name>.description
+```
+
+### See Current Branch Details (Upstream and Tracking)
+
+```bash
+git branch -vv
+```
+
+### Get Current Branch Name
+
+```bash
+git rev-parse --abbrev-ref HEAD
+```
+
+---
+
+## 📜 Commit History
+
+### Visualize Commit Graph
+
+```bash
+git log --graph --all --oneline
+```
+
+---
+
+## 📁 Getting Information
+
+### List All Files Tracked in `master`
+
+```bash
+git ls-tree -r --name-only master
+# -r = recursive
+```
+
+### Get Remote URL
+
+```bash
+git config --get remote.origin.url
+```
+
+### Show Full Remote Info
+
+```bash
+git remote show origin
+```
+
+---
+
+## ⚙️ Configuration
+
+### View Git Config
+
+```bash
+git config --list
+```
+
+### Set Global Text Editor
+
+```bash
+git config --global core.editor "nano -w"
+# or
+git config --global core.editor "vim"
+```
+
+---
+
+## 🌐 Remote Repositories
+
+### Display All Remote URLs
+
+```bash
+git remote -v
+```
+
+### Remove Remote
+
+```bash
+git remote remove origin
+```
+
+### Add Remote
+
+```bash
+git remote add origin https://github.com/username/repository.git
+```
+
+### Update Existing Remote URL
+
+```bash
+git remote set-url origin https://github.com/username/new-repo.git
+```
+
+### Inspect a Remote
+
+```bash
+git remote show origin
+```
+
+---
+
+## 🌍 Remote Branches
+
+### Pull a Remote Branch to a New Local Branch
+
+```bash
+git checkout -b myBranchName repo2/master
+```
+
+### Delete Remote Branch
+
+```bash
+git push --delete <remote-name> <branch-name>
+```
+
+---
+
+## 🧪 Miscellaneous
+
+### Show First (Initial) Commit
+
+```bash
+git rev-list --max-parents=0 HEAD
+```
+
+---
+
+## 🔗 Resources
+
+- [Official Git Documentation](https://git-scm.com/doc)
+- [Git Branching Guide](https://learngitbranching.js.org/)
+
