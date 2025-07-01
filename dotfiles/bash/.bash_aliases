@@ -37,7 +37,7 @@ alias gfp="git ls-tree -r --name-only master"
 alias gcm="git commit -m"
 alias gs='git status'
 alias gsu='git status -u'
-alias gsw='git checkout $(git branch | fzf)'
+alias gsw='git checkout $(git branch | fzf --height 15 --reverse --border --prompt="Choose a branch to switch into: ")'
 alias gd='git diff'
 alias gpu='git push'
 alias bare="/usr/bin/git --git-dir=$HOME/.kwu32.git --work-tree=$HOME"
