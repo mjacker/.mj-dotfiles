@@ -32,9 +32,21 @@ eval "$(fasd --init auto)"
 set -o vi
 
 # Git alias
+# Define a function to wrap git add with multiple files
+func_gadd() {
+  git add "$@"
+}
+alias ga='func_gadd'
+func_gcm() {
+  git commit -m "$*"
+}
+alias gaa="git add ."
+alias gpff="git pull --ff-only"
+alias gprb="git pull --rebase"
+alias gpsh="git push"
+alias gsync="git pull --rebase && git push"
 alias glo="git log --all --oneline --graph --decorate"
 alias gfp="git ls-tree -r --name-only master"
-alias gcm="git commit -m"
 alias gs='git status'
 alias gsu='git status -u'
 alias gsw='git checkout $(git branch | fzf --height 15 --reverse --border --prompt="Choose a branch to switch into: ")'
