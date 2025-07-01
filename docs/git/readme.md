@@ -1,34 +1,37 @@
 ## General usage
 - Git initialize
-    `git init`
+`git init`
 - Add files
-    `git add .`
+`git add .`
 - Commit
-    `git commit -m "starting git"`
+`git commit -m "starting git"`
 - Remote
-    `git remote add origin https://github.com/mjacker/nameBranch.git`
-    `git push --set-upstream origin nameBranch`
+`git remote add origin https://github.com/mjacker/nameBranch.git`
+`git push --set-upstream origin nameBranch`
 
 ### Branches
-	--delete
-		`git branch --delete <branch-name>`
+--delete
+`git branch --delete <branch-name>`
 	
-	Adding a comment to the current branch:
-		`git branch --eidt-description`
+Adding a comment to the current branch:
+`git branch --edit-description`
 
-	Showing current branch details:
-		`git config branch.<branch>.description`
+Showing current branch details:
+`git config branch.<branch>.description`
 
-    Get Current branch name
-        `git rev-parse --abbrev-ref HEAD`
+See Current Upstream Config
+`git branch -vv`
+
+Get Current branch name
+`git rev-parse --abbrev-ref HEAD`
 
 ### Options for log
-    git log --graph --all --oneline
+`git log --graph --all --oneline`
 
 ### Set origin remote repository
-    git remote add origin https://github.com/mjacker/BranchName.git
-    git set-url origin https://github.com/mjacker/BranchName.git #really need this?
-    git push -u origin master
+git remote add origin https://github.com/mjacker/BranchName.git
+git set-url origin https://github.com/mjacker/BranchName.git #really need this?
+git push -u origin master
 
 
 ---
@@ -46,32 +49,32 @@
 
 ---
 ### Config
-	Get current config list
-	`git config --list`
+Get current config list
+`git config --list`
 
 ### Global Config Text editor:
-    nano	~ git config --global core.editor "nano -w"~
-    vim	    ~ git config --global core.editor "vim"~
+nano	~ git config --global core.editor "nano -w"~
+vim	    ~ git config --global core.editor "vim"~
 
 ---
 ### Remote options 
 - Display al remote urls
-    `remote -v`
+`remote -v`
 - Remove url
-    `git remote remove origin`
+`git remote remove origin`
 - Add url
-    `git remote add origin <url>/<repository-name>.git`
+`git remote add origin <url>/<repository-name>.git`
 - Update existing remote url
-    `git remote set-url <remote-name> <new-url>`
+`git remote set-url <remote-name> <new-url>`
 - Inspecting a Remote
-	 `git remote show`
-	 `git remote show origin`
+`git remote show`
+`git remote show origin`
 
 ### Remote branches
-    Pull remote new branch to new branch local
-        `git checkout -b myBranchName repo2/master`
-	Delete remote branch:
-		`git push --delete <remote name> <branch name>
+Pull remote new branch to new branch local
+`git checkout -b myBranchName repo2/master`
+Delete remote branch:
+`git push --delete <remote name> <branch name>`
 
 ---
 ### Others
