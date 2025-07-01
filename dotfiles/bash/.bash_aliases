@@ -49,6 +49,10 @@ alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
 
+# fzf
+alias ffp="ls | fzf --preview 'cat {}'"
+
+
 alias ll="ls -laho"
 alias lm="ls | more"
 alias la="ls -alFh --group-directories-firs"
