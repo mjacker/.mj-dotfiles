@@ -21,3 +21,24 @@ A page with compilation of common mistakes made by bash users.
 
 - Awesome shell
 [github.com](https://github.com/alebcay/awesome-shell?tab=readme-ov-file)
+
+| Key Combination | Description                        |
+|------------------|------------------------------------|
+| `Ctrl + A`       | Move cursor to beginning of line   |
+| `Ctrl + E`       | Move cursor to end of line         |
+| `Ctrl + U`       | Delete from cursor to beginning    |
+| `Ctrl + K`       | Delete from cursor to end          |
+| `Ctrl + W`       | Delete the previous word           |
+| `Ctrl + Y`       | Yank (paste) the last killed text  |
+| `Ctrl + L`       | Clear the screen (like `clear`)    |
+| `Ctrl + R`       | Reverse search through history     |
+| `Ctrl + P`       | Previous command in history        |
+| `Ctrl + N`       | Next command in history            |
+| `Alt + .`        | Insert last argument from previous command |
+| `Ctrl + T`       | Transpose (swap) two characters    |
+| `Alt + T`        | Transpose two words                |
+| `Ctrl + B`       | Move back one character            |
+| `Ctrl + F`       | Move forward one character         |
+| `Alt + B`        | Move back one word                 |
+| `Alt + F`        | Move forward one word              |
+
