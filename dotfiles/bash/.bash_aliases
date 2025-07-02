@@ -1,3 +1,7 @@
+if command -v vim >/dev/null 2>&1; then
+  export EDITOR=vim
+fi
+
 # Running tmux at bash starts
 # if command -v tmux &> /dev/null && \
 # 	[ -n "$PS1" ] && \
