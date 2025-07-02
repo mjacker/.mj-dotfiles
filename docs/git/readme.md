@@ -177,4 +177,4 @@ git rev-list --max-parents=0 HEAD
 
 - [Official Git Documentation](https://git-scm.com/doc)
 - [Git Branching Guide](https://learngitbranching.js.org/)
-
+- [Learn Git with animations](https://learngitbranching.js.org/)
