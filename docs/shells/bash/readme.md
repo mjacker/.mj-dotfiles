@@ -42,3 +42,15 @@ A page with compilation of common mistakes made by bash users.
 | `Alt + B`        | Move back one word                 |
 | `Alt + F`        | Move forward one word              |
 
+## Bash History expansion
+
+| Syntax   | Description                                      |
+|----------|--------------------------------------------------|
+| `!$`     | Last argument of the previous command            |
+| `!^`     | First argument of the previous command           |
+| `!:n`    | Nth argument of the previous command (0-based)   |
+| `!:0`    | The command itself                               |
+| `!:1`    | First argument                                   |
+| `!:2`    | Second argument, etc.                            |
+| `!:-2`   | Second-to-last argument                          |
+
