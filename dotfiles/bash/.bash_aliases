@@ -25,9 +25,19 @@ if [ -f ~/.local/bin/oh-my-posh ]; then
 fi
 
 # oh-my-posh config
-PATH=$PATH:/home/mjubuntu/.local/bin
+# # Add ~/.local/bin to PATH if it exists
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$PATH:$HOME/.local/bin"
+fi
+
+if command -v oh-my-posh &> /dev/null; then
+    eval "$(oh-my-posh init bash --config "$HOME/.cache/oh-my-posh/themes/atomicBit.omp.json")"
+else
+    echo "⚠️ oh-my-posh not found. Skipping prompt customization."
+fi
+
+#PATH=$PATH:/home/mjubuntu/.local/bin
 # eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/lightgreen.omp.json)"
-eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/atomicBit.omp.json)"
 
 # fasd
 eval "$(fasd --init auto)"
