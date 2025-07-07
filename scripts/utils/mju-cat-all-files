@@ -1,10 +1,33 @@
 #!/usr/bin/bash
-#for file in *; do
-#  [ -f "$file" ] && echo "===== $file =====" && cat "$file"
-#done
+RECURSIVE=false
+SHOW_HELP=false
 
-for file in *; do
-  [ -f "$file" ] && echo -e "\033[1;34m===== $file =====\033[0m" && cat "$file"
+
+while getopts "rh" opt; do
+  case $opt in 
+    h)
+      echo "Usage: $0 [-r] [-h]"
+      echo "  -r    Recursively list and display files"
+      echo "  -h    Show this help message"
+      exit 0
+      ;;
+    r)
+      RECURSIVE=true
+      ;;
+    *)
+      ;;
+esac
 done
 
+if $RECURSIVE; then
+  files=$(find . -type f)
+else
+  files=$(find . -maxdepth 1 -type f) 
+fi 
 
+echo "files:"
+echo $files
+
+for file in $files; do
+  [ -f "$file" ] && echo -e "\033[1;34m===== $file =====\033[0m" && cat "$file"
+done
