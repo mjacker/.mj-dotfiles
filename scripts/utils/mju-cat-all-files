@@ -16,18 +16,21 @@ while getopts "rh" opt; do
       ;;
     *)
       ;;
-esac
+  esac
 done
 
 if $RECURSIVE; then
-  files=$(find . -type f)
+  find . -type f ! -path '*/.*' ! -name '.*' -print0
 else
-  files=$(find . -maxdepth 1 -type f) 
-fi 
-
-echo "files:"
-echo $files
-
-for file in $files; do
+  find . -maxdepth 1 -type f ! -name '.*' -print0
+fi |
+  while IFS= read -r -d '' file; do
   [ -f "$file" ] && echo -e "\033[1;34m===== $file =====\033[0m" && cat "$file"
 done
+
+# echo "files:"
+# echo "$files"
+# 
+# for file in $files; do
+#   [ -f "$file" ] && echo -e "\033[1;34m===== $file =====\033[0m" && cat "$file"
+# done
