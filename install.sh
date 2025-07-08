@@ -121,7 +121,7 @@ setup_bash_config () {
   
   if [[ -x "$BASH_LINK_SCRIPT" ]]; then
     echo "💡 Linking .bash_aliases $BASH_LINK_SCRIPT"
-    "$POSH_INSTALLER"
+    . "$POSH_INSTALLER"
   else
     echo "⚠️  Skipping .bash_aliases setup. File not found: $BASH_LINK_SCRIPT"
   fi
