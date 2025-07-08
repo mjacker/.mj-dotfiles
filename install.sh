@@ -140,7 +140,7 @@ main() {
   fi
 
   setup_oh_my_posh
-  setup_bash_cofig
+  setup_bash_config
 
   info "✅ All done!"
 }
