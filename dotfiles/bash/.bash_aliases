@@ -1,3 +1,6 @@
+# Use vim keybinds
+set -o vi
+
 if command -v vim >/dev/null 2>&1; then
   export EDITOR=vim
 fi
@@ -20,14 +23,14 @@ ohmyposh_to_path() {
         export PATH="$PATH:$dir"
     fi
 }
-if [ -f ~/.local/bin/oh-my-posh ]; then
-	ohmyposh_to_path "~/.local/bin/"
+if [ -f ~/.mj-dotfiles/.local/bin/oh-my-posh ]; then
+	ohmyposh_to_path "~/.mj-dotfiles/.local/bin/"
 fi
 
 # oh-my-posh config
 # # Add ~/.local/bin to PATH if it exists
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$PATH:$HOME/.local/bin"
+if [ -d "$HOME/.mj-dotfiles/.local/bin" ]; then
+    PATH="$PATH:$HOME/.mj-dotfiles/.local/bin"
 fi
 
 if command -v oh-my-posh &> /dev/null; then
@@ -36,14 +39,23 @@ else
     echo "⚠️ oh-my-posh not found. Skipping prompt customization."
 fi
 
+if command -v oh-my-posh &> /dev/null; then
+  alias posh-theme="\
+    theme_file=\$(find ~//.cache/oh-my-posh/themes -name '*.omp.json' | fzf) && \
+    eval \"\$(oh-my-posh init bash --config \$theme_file)\""
+fi
+
+
 #PATH=$PATH:/home/mjubuntu/.local/bin
 # eval "$(oh-my-posh init bash --config /home/mjubuntu/.cache/oh-my-posh/themes/lightgreen.omp.json)"
 
 # fasd
-eval "$(fasd --init auto)"
+if command -v fash &> /dev/null; then
+  eval "$(fasd --init auto)"
+else 
+  echo "fasd not installed."
+fi
 
-# Use vim keybinds
-set -o vi
 
 # Git alias
 # Define a function to wrap git add with multiple files

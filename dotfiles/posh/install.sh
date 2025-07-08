@@ -20,7 +20,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d "${OH_MY_POSH_BIN}"
 
 # 2. Create custom theme directory
 echo "📁 Creating custom theme folder at: $OH_MY_POSH_THEME_DIR"
-mkdir -p "${$OH_MY_POSH_THEME_DIR}"
+mkdir -p "$OH_MY_POSH_THEME_DIR"
 
 # 3. Download the selected theme
 echo "🎨 Downloading theme: $THEME_NAME"
