@@ -15,7 +15,7 @@ ZSHRC="${HOME}/.zshrc"
 
 # 1. Install Oh My Posh binary
 echo "🔧 Installing Oh My Posh binary at: $OH_MY_POSH_BIN"
-mkdir -p "${$OH_MY_POSH_BIN}"
+mkdir -p "$OH_MY_POSH_BIN"
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d "${OH_MY_POSH_BIN}"
 
 # 2. Create custom theme directory
