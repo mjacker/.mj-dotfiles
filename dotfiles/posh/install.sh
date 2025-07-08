@@ -22,13 +22,9 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d "${OH_MY_POSH_BIN}"
 echo "📁 Creating custom theme folder at: $OH_MY_POSH_THEME_DIR"
 mkdir -p "$OH_MY_POSH_THEME_DIR"
 
-# 3. Download the selected theme
-echo "🎨 Downloading theme: $THEME_NAME"
-curl -fsSL -o "${OH_MY_POSH_THEME_DIR}/${THEME_NAME}" "${THEME_URL}"
-chmod u+rw "${THEME_PATH}"
-
-if [ -d $HOME/.lcache/oh-my-posh/themes ]; then
-  cp -r "$HOME/.cache/oh-my-posh/themes" "${OH_MY_POSH_THEME_DIR}"
+# 3. Copy Themes
+if [ -d $HOME/.cache/oh-my-posh/themes ]; then
+  cp -r "$HOME/.cache/oh-my-posh/themes/"* "${OH_MY_POSH_THEME_DIR}/"
   rm -rf "$HOME/.cache/oh-my-posh"
 fi 
 
