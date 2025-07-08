@@ -2,7 +2,7 @@
 
 set -e
 
-DOTFILE_PATH="${PWD}/.bash_aliases"
+DOTFILE_PATH="${HOME}/.mj-dotfiles/dotfiles/bash/.bash_aliases"
 TARGET="$HOME/.bash_aliases"
 
 # Remove existing link or file if needed
