@@ -41,7 +41,7 @@ fi
 
 if command -v oh-my-posh &> /dev/null; then
   alias posh-theme="\
-    theme_file=\$(find ~//.cache/oh-my-posh/themes -name '*.omp.json' | fzf) && \
+    theme_file=\$(find ~/.mj-dotfiles/.cache/oh-my-posh/themes -name '*.omp.json' | fzf) && \
     eval \"\$(oh-my-posh init bash --config \$theme_file)\""
 fi
 
