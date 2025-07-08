@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 # Only export if not already exported
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.mj-dotfiles/.local/share}"
@@ -121,7 +122,7 @@ setup_bash_config () {
   
   if [[ -x "$BASH_LINK_SCRIPT" ]]; then
     echo "💡 Linking .bash_aliases $BASH_LINK_SCRIPT"
-    . "$POSH_INSTALLER"
+    source  "$BASH_LINK_SCRIPT"
   else
     echo "⚠️  Skipping .bash_aliases setup. File not found: $BASH_LINK_SCRIPT"
   fi
