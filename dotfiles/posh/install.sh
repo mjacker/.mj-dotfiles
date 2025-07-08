@@ -27,6 +27,20 @@ echo "🎨 Downloading theme: $THEME_NAME"
 curl -fsSL -o "${OH_MY_POSH_THEME_DIR}/${THEME_NAME}" "${THEME_URL}"
 chmod u+rw "${THEME_PATH}"
 
+if [ -d $HOME/.lcache/oh-my-posh/themes ]; then
+  cp -r "$HOME/.cache/oh-my-posh/themes" "${OH_MY_POSH_THEME_DIR}"
+  rm -rf "$HOME/.cache/oh-my-posh"
+fi 
+
+DIR="$HOME/.cache"
+
+if [ -d "$DIR" ] && [ -z "$(ls -A "$DIR")" ]; then
+  echo "Deleting empty ~/.cache directory: $DIR"
+  rmdir "$DIR"
+else
+  echo "Directory ~/.cache is not empty or does not exist: $DIR"
+fi
+
 # 4. Add eval line to shell config
 EVAL_LINE="eval \"\$(oh-my-posh init ${SHELL_TYPE} --config ${THEME_PATH})\""
 
