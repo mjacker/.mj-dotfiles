@@ -1,102 +1,98 @@
 #!/bin/bash
+set -e
 
-programs_minimal=( \
-	"curl" \
-	"vim" \
-	"git")
+programs_minimal=(curl vim git)
 
-programs=( \
-	"curl" \
-  "zsh" \ 
-	"nala" \
-	"vim" \
-  # "neovim" \ # I am using a neovim pre-released >= 0.8.0, install from shell
-	"tmux" \
-	"git" \
-	# "wl-clipboard" \ # This install gcc and x11, 126 packages 300mb 
-    # now i can not copy text from vim :c
-	"gnupg" \
-	"pass" \
-	"fzf" \
-	"w3m" \
-   # for lua = gcc
-  "build-essential" \
-	)
-
-installers=( \
-  "nala" \
-  "apt-get" \
-  "pkg" \
-  "apk"
+programs=(
+  curl
+  zsh
+  nala
+  vim
+  tmux
+  git
+  gnupg
+  pass
+  fzf
+  w3m
+  build-essential
 )
+
+installers=(
+  nala
+  apt-get
+  pkg
+  apk
+)
+
 command_exists() {
-	command -v "$1" >/dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
 }
 
 missing() {
-    printf "\e[31m$1\e[0m\n"
+  printf "\e[31m✘ %s is missing\e[0m\n" "$1"
 }
 
 info() {
-    printf "$1\n"
+  printf "\e[34m➤ %s\e[0m\n" "$1"
 }
 
 warn() {
-    printf "⚠️  \e[33m$1\e[0m\n"
+  printf "⚠️  \e[33m%s\e[0m\n" "$1"
 }
 
+# Select available installer
 select_installer() {
   for i in "${installers[@]}"; do
-    if ! command -v $i >/dev/null; then
-        warn "$i not installed!.\n"
-    else
-      installer=$i
+    if command_exists "$i"; then
+      installer="$i"
+      info "Installer selected: $installer"
       return 0
+    else
+      warn "$i not found"
     fi
   done
-  info "Intaller selected is $installer"
+  echo "❌ No supported package manager found! Exiting."
+  exit 1
 }
 
 update_installer() {
-  $installer update && $installer upgrade
+  case "$installer" in
+    nala|apt-get) sudo $installer update -y && sudo $installer upgrade -y ;;
+    apk) sudo $installer update ;;
+    pkg) sudo $installer update && sudo $installer upgrade ;;
+    *) echo "❌ Unknown installer: $installer"; exit 1 ;;
+  esac
 }
 
-install_apps(){
-  for program in "${programs[@]}"; do
-    if command_exists $program; then
-      echo "command $program installed."
+install_apps() {
+  local list=("$@")
+  for program in "${list[@]}"; do
+    if command_exists "$program"; then
+      info "$program already installed"
     else
-      missing "command $program missing."
-      warn "Installing..."
-      $installer install -y $program
-      if [ $program = "nala" ]; then
-        select_installer
-      fi 
+      missing "$program"
+      warn "Installing $program..."
+      sudo $installer install -y "$program"
+      if [ "$program" = "nala" ]; then
+        select_installer  # Switch to nala if installed mid-run
+      fi
     fi
   done
 }
 
-select_installer
-update_installer
-install_apps
+main() {
+  select_installer
+  update_installer
 
+  if [[ "$1" == "--minimal" || "$1" == "-m" ]]; then
+    info "Installing minimal packages..."
+    install_apps "${programs_minimal[@]}"
+  else
+    info "Installing full package list..."
+    install_apps "${programs[@]}"
+  fi
 
-# # Check if at least one argument is provided
-# if [ $# -gt 0 ]; then
-#     if [ "$1" == "--minimal" ] || [ "$1" == "-m" ]; then
-# 	    for program in "${programs_minimal[@]}"; do
-# 		    install_package $program
-# 	    done
-#     fi
-# else
-#     if command_exists nala; then
-#     	echo "Package manager: nala"
-#     	nala update && nala upgrade -y
-#     elif command_exists apt-get; then
-# 	apt-get update && apt-get upgrade -y
-#     fi
-#     for program in "${programs[@]}"; do
-# 	install_package $program
-#     done
-# fi
-# 
+  info "✅ All done!"
+}
+
+main "$@"
