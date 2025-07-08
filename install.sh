@@ -4,17 +4,17 @@ set -e
 programs_minimal=(curl vim git)
 
 programs=(
-  curl
-  zsh
   nala
-  vim
-  tmux
+  curl
   git
-  gnupg
-  pass
-  fzf
-  w3m
-  build-essential
+  tmux
+  vim
+  #fzf
+  # zsh
+  #gnupg
+  #pass
+  #w3m
+  #build-essential
 )
 
 installers=(
