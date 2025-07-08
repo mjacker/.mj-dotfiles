@@ -19,7 +19,7 @@ programs=(
   git
   tmux
   vim
-  #fzf
+  fzf
   # zsh
   #gnupg
   #pass
@@ -105,6 +105,17 @@ install_apps() {
   done
 }
 
+setup_oh_my_posh () {
+  POSH_INSTALLER="$HOME/.mj-dotfiles/dotfiles/posh/install.sh"
+  
+  if [[ -x "$POSH_INSTALLER" ]]; then
+    echo "💡 Detected Oh My Posh installer at $POSH_INSTALLER"
+    "$POSH_INSTALLER"
+  else
+    echo "⚠️  Skipping Oh My Posh setup. File not found: $POSH_INSTALLER"
+  fi
+}
+
 main() {
   select_installer
   update_installer
@@ -116,6 +127,8 @@ main() {
     info "Installing full package list..."
     install_apps "${programs[@]}"
   fi
+
+  setup_oh_my_posh
 
   info "✅ All done!"
 }
