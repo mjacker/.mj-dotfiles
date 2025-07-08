@@ -1,6 +1,15 @@
 #!/bin/bash
 set -e
 
+# Only export if not already exported
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.mj-dotfiles/.local/share}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.mj-dotfiles/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.mj-dotfiles/.cache}"
+case ":$PATH:" in
+  *":$HOME/.mj-dotfiles/.local/bin:"*) ;;
+  *) export PATH="$HOME/.mj-dotfiles/.local/bin:$PATH" ;;
+esac
+
 programs_minimal=(curl vim git)
 
 programs=(
