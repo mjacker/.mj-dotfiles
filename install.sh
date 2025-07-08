@@ -6,6 +6,7 @@ programs_minimal=(curl vim git)
 programs=(
   nala
   curl
+  unzip
   git
   tmux
   vim
@@ -57,10 +58,25 @@ select_installer() {
 
 update_installer() {
   case "$installer" in
-    nala|apt-get) sudo $installer update -y && sudo $installer upgrade -y ;;
-    apk) sudo $installer update ;;
-    pkg) sudo $installer update && sudo $installer upgrade ;;
-    *) echo "❌ Unknown installer: $installer"; exit 1 ;;
+    nala)
+      sudo nala update
+      sudo nala upgrade -y
+      ;;
+    apt-get)
+      sudo apt-get update -y
+      sudo apt-get upgrade -y
+      ;;
+    apk)
+      sudo apk update
+      ;;
+    pkg)
+      sudo pkg update
+      sudo pkg upgrade
+      ;;
+    *)
+      echo "❌ Unknown installer: $installer"
+      exit 1
+      ;;
   esac
 }
 
