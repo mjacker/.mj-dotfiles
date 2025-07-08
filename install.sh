@@ -116,6 +116,17 @@ setup_oh_my_posh () {
   fi
 }
 
+setup_bash_config () {
+  BASH_LINK_SCRIPT="$HOME/.mj-dotfiles/dotfiles/bash/link-bash_aliases-home.sh"
+  
+  if [[ -x "$BASH_LINK_SCRIPT" ]]; then
+    echo "💡 Linking .bash_aliases $BASH_LINK_SCRIPT"
+    "$POSH_INSTALLER"
+  else
+    echo "⚠️  Skipping .bash_aliases setup. File not found: $BASH_LINK_SCRIPT"
+  fi
+}
+
 main() {
   select_installer
   update_installer
@@ -129,6 +140,7 @@ main() {
   fi
 
   setup_oh_my_posh
+  setup_bash_cofig
 
   info "✅ All done!"
 }
