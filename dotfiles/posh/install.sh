@@ -3,7 +3,7 @@ set -e
 
 # Configuration
 VAULT_DIR="${HOME}/.mj-dotfiles/.vaults/oh-my-posh-themes"
-THEME_URL="https://ohmyposh.dev/themes/jandedobbeleer.omp.json"
+THEME_URL="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json"
 THEME_NAME="jandedobbeleer.omp.json"
 THEME_PATH="${VAULT_DIR}/${THEME_NAME}"
 SHELL_TYPE="bash" 
