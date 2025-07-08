@@ -3,24 +3,27 @@ set -e
 
 # Configuration
 VAULT_DIR="${HOME}/.mj-dotfiles/.vaults/oh-my-posh-themes"
+MJ_DOTFILES="${HOME}/.mj-dotfiles"
+OH_MY_POSH_BIN="${MJ_DOTFILES}/.local/bin"
+OH_MY_POSH_THEME_DIR="${MJ_DOTFILES}/.cache/oh-my-posh-themes"
 THEME_URL="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json"
 THEME_NAME="jandedobbeleer.omp.json"
-THEME_PATH="${VAULT_DIR}/${THEME_NAME}"
+THEME_PATH="${OH_MY_POSH_THEME_DIR}/${THEME_NAME}"
 SHELL_TYPE="bash" 
 BASHRC="${HOME}/.bashrc"
 ZSHRC="${HOME}/.zshrc"
 
 # 1. Install Oh My Posh binary
-echo "🔧 Installing Oh My Posh binary..."
-curl -s https://ohmyposh.dev/install.sh | bash -s
+echo "🔧 Installing Oh My Posh binary at: $OH_MY_POSH_BIN"
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d "${OH_MY_POSH_BIN}"
 
 # 2. Create custom theme directory
-echo "📁 Creating custom theme folder at: $VAULT_DIR"
-mkdir -p "${VAULT_DIR}"
+echo "📁 Creating custom theme folder at: $OH_MY_POSH_THEME_DIR"
+mkdir -p "${$OH_MY_POSH_THEME_DIR}"
 
 # 3. Download the selected theme
 echo "🎨 Downloading theme: $THEME_NAME"
-curl -fsSL -o "${THEME_PATH}" "${THEME_URL}"
+curl -fsSL -o "${OH_MY_POSH_THEME_DIR}/${THEME_NAME}" "${THEME_URL}"
 chmod u+rw "${THEME_PATH}"
 
 # 4. Add eval line to shell config
