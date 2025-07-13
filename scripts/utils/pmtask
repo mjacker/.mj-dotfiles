@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Usage: ./pomodoro_task.sh <task_id> <duration>
+TASK_ID=$1
+DURATION_RAW=$2
+
+if [[ -z "$TASK_ID" || -z "$DURATION_RAW" ]]; then
+  echo "Usage: $0 <task_id> <duration>  (e.g., 5m, 1h30m, 45s)"
+  exit 1
+fi
+
+# Function to convert natural time to seconds
+parse_duration() {
+  local input="$1"
+  local total_seconds=0
+
+  # Extract hours, minutes, seconds using regex
+  if [[ $input =~ ([0-9]+)h ]]; then
+    total_seconds=$((total_seconds + ${BASH_REMATCH[1]} * 3600))
+  fi
+  if [[ $input =~ ([0-9]+)m ]]; then
+    total_seconds=$((total_seconds + ${BASH_REMATCH[1]} * 60))
+  fi
+  if [[ $input =~ ([0-9]+)s ]]; then
+    total_seconds=$((total_seconds + ${BASH_REMATCH[1]}))
+  fi
+
+  echo $total_seconds
+}
+
+# Convert input to seconds
+DURATION_SEC=$(parse_duration "$DURATION_RAW")
+
+if [[ $DURATION_SEC -eq 0 ]]; then
+  echo "⛔ Invalid duration format: $DURATION_RAW"
+  exit 1
+fi
+
+# Start task
+echo "▶️ Starting Task $TASK_ID for $DURATION_RAW"
+task "$TASK_ID" start
+
+countdown() {
+  local seconds=$1
+  while [ $seconds -gt 0 ]; do
+    printf "\r⏳ Time remaining: %02d:%02d" $((seconds/60)) $((seconds%60))
+    sleep 1
+    ((seconds--))
+  done
+  echo
+}
+
+countdown $DURATION_SEC
+
+# Notify
+echo -e "\n🔔 Time's up for Task $TASK_ID!"
+powershell.exe -c "(New-Object Media.SoundPlayer 'C:\\Windows\\Media\\notify.wav').PlaySync();"
+
+# Optionally stop or mark done
+# task "$TASK_ID" stop
+# task "$TASK_ID" done
+
+exit 0
+
