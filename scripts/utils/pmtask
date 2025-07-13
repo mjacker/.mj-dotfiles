@@ -14,7 +14,6 @@ parse_duration() {
   local input="$1"
   local total_seconds=0
 
-  # Extract hours, minutes, seconds using regex
   if [[ $input =~ ([0-9]+)h ]]; then
     total_seconds=$((total_seconds + ${BASH_REMATCH[1]} * 3600))
   fi
