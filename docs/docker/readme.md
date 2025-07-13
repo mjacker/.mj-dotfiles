@@ -36,6 +36,8 @@ Create a container without runing it
 `sudo docker run -i -t kalilinux/kali-roling:latest /bin/bash`
 
 
+# system
 
-
+Delete all stopped containers, networks, volumes, and build cache
+`docker system prune -a --volumes`
 
