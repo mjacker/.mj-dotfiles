@@ -4,7 +4,7 @@ This cheat sheet summarizes the behavior of special (dunder) methods for Python'
 
 ---
 
-## ✅ Commonly Used Dunder Methods
+## Commonly Used 
 
 | Method         | Example                  | Description                                | Output                         |
 |----------------|--------------------------|--------------------------------------------|--------------------------------|
@@ -40,7 +40,7 @@ This cheat sheet summarizes the behavior of special (dunder) methods for Python'
 
 ---
 
-## ⚙️ Skipped or Rarely Used Methods
+## Rarely Used Methods
 
 | Method               | Description                             |
 |----------------------|-----------------------------------------|
