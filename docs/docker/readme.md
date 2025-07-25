@@ -28,6 +28,9 @@ Create a container without runing it
 `docker stop <id/name>`
 `docker rm <id/name>`
 
+# Ports
+`docker port <container-name>`
+
 # Tags
 `docker tag abc123def456 my-app:latest`
 
