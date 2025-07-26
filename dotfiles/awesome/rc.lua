@@ -326,7 +326,13 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- Synaptics
+    awful.key({}, "XF86TouchpadToggle",
+    function ()
+        awful.spawn.with_shell("~/mjarch-root/02-gits/MJCSIE/.mj-dotfiles/docs/arch/touchpad/toggle-touchpad.sh")
+    end,
+              {description = "toggle touchpad", group = "custom"})
 )
 
 clientkeys = gears.table.join(
