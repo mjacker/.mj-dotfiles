@@ -26,3 +26,6 @@ else
     notify-send "Touchpad enabled"
 fi
 ```
+
+Restart awesome
+`<super> + Ctrol + r`
