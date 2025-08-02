@@ -359,6 +359,20 @@ clientkeys = gears.table.join(
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
+
+    awful.key({ modkey, "Shift" }, "n",
+    function ()
+        for _, c in ipairs(client.get()) do
+            if c.minimized then
+                c.minimized = false
+                client.focus = c
+                c:raise()
+                return
+            end
+        end
+    end,
+    {description = "restore minimized", group = "client"}
+),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized = not c.maximized
