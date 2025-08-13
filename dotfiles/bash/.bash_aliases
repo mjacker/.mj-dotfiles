@@ -107,3 +107,5 @@ alias nvimf='nvim $(fzf)'
 alias w3g="w3m www.google.com"
 alias w3d="w3m www.duckduckgo.com"
 #alias ly="lynx www.google.com"
+
+alias pytime="date -d 'now + 3 hour 30 minutes' | awk '{print $4}'"
