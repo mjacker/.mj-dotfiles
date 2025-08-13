@@ -1,5 +1,7 @@
 # qemu
 
+[Official documentation](https://www.qemu.org/docs/master/system/target-i386.html)
+
 ## When VM is running
 
 help
@@ -10,3 +12,5 @@ detach from VM
 
 Terminate VM
 `control + a, x`
+
+
