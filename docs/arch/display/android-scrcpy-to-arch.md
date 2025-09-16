@@ -43,6 +43,11 @@ Optional tcpip
 > 
 > `xauth add mjacker/unix:2 MIT-MAGIC-COOKIE-1 <secret-cookie>
 
+# Start conecxion
 
+`scrcpy`
+
+With display off
+`scrcpy --turn-screen-off`
 
 
