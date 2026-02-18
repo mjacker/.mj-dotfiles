@@ -1,6 +1,11 @@
 # Bash
 
-Bash for bash-scripting.
+# Argumetns
+
+`--norc` Do not read `~/.bachrc`, this avoid Oh-My-Ppsh entirely
+
+
+# Bash for bash-scripting.
 
 
 # How to build your own scripts library
