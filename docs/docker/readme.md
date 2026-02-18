@@ -44,3 +44,7 @@ Create a container without runing it
 Delete all stopped containers, networks, volumes, and build cache
 `docker system prune -a --volumes`
 
+# Solving issues
+ `sudo usermod -aG docker $USER` Docker running only with sudo
+> if cant logout, can star a new shell with updated groups with
+> `newgrp docker`
