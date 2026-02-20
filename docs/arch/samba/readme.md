@@ -1,7 +1,6 @@
 # Samba server in arch
 
 `sudo pacman -S samba` Install samba
-
 > extra/cifs-utils   7.4-1          0.28 MiB       0.10 MiB
 > extra/ldb          2:4.23.5-1     2.14 MiB       0.45 MiB
 > extra/libbsd       0.12.2-2       0.33 MiB       0.16 MiB
@@ -13,10 +12,9 @@
 > extra/samba        2:4.23.5-1    62.22 MiB       8.45 MiB
 
 `mkdir ~/shared` Create a shared folder
-`sudo vim /etc/samba/smb.conf` Configure
 
+`sudo vim /etc/samba/smb.conf` Configure
 ```
-sudo cat /etc/samba/smb.conf 
 [Shared]
    path = /home/YOURUSERNAME/shared
    browseable = yes
@@ -26,11 +24,19 @@ sudo cat /etc/samba/smb.conf
 ```
 
 `sudo smbpasswd -a YOURUSERNAME` update password
-
-
 `sudo systemctl enable --now smb nmb` Start service
-
 `sudo ufw allow samba` If firewall 
-
-
 ` \\ARCH-IP-ADDRESS\` from windows
+
+# uninstall
+`sudo systemctl stop smb nmb`
+`sudo systemctl disable smb nmb`
+`sudo pacman -Rns samba`
+
+Some leftover Samba files
+```
+sudo rm -rf \
+  /var/lib/samba \
+  /var/cache/samba \
+  /var/run/samba
+```
