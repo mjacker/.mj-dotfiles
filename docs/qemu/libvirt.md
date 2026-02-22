@@ -52,7 +52,7 @@ sudo modprobe x_tables
 # Conenct to qemu:///system
 `virsh --connect qemu:///system uri` 
 
-# Make sure Defulat network exists
+# Make sure Default network exists
 `virsh net-list --all`: List all
 `sudo virsh --connect qemu:///system net-list --all`
 
@@ -121,8 +121,6 @@ Install virt-viewer
 `sudo pacman -S virt-viewer`
 
 
-
-
 # connect to VM Console
 `virsh console alpine1`
 
@@ -140,6 +138,7 @@ Remove iso
 `virsh change-media alpine1 hda --eject --config`
 
 # Show all vm
+` virsh --connect qemu:///system <command>`
 `sudo virsh list --all`
 
 # start VM
