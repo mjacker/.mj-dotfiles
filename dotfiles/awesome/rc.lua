@@ -525,6 +525,12 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+    { rule_any = { class = { "Steam", "steam_app" } },
+      properties = {
+      floating = true,
+      fullscreen = true
+      }
+    },
 }
 -- }}}
 
