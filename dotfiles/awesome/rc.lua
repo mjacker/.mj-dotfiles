@@ -118,6 +118,15 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
+-- Clock for Paraguay
+mytextclock_py = wibox.widget.textclock("🇵🇾 PY: %A %d %b, %H:%M", 60, "America/Asuncion")
+
+-- Clock for New Delhi
+mytextclock_in = wibox.widget.textclock("🇮🇳 IN: %A %d %b, %H:%M", 60, "Asia/Kolkata")
+
+
+
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -221,7 +230,11 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
+            -- mytextclock, --original clock
+            wibox.widget.textbox(" | "),  -- separator
+            mytextclock_py,
+            wibox.widget.textbox(" | "),  -- separator
+            mytextclock_in,
             s.mylayoutbox,
         },
     }
@@ -597,3 +610,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Autostart
+awful.spawn.with_shell("conky -c ~/.config/conky/conky.conf")
