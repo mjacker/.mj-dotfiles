@@ -21,11 +21,11 @@ naughty.config.defaults.padding = 16
 naughty.config.defaults.border_width = 2
 
 -- animated deskotp, create a hidden tag (no screen assigned or just never used) to be used by mpv
-local hidden_tag = awful.tag.add("bg", {
-    screen = screen.primary,
-    layout = awful.layout.suit.floating,
-})
-hidden_tag.selected = false
+-- local hidden_tag = awful.tag.add("bg", {
+--     screen = screen.primary,
+--     layout = awful.layout.suit.floating,
+-- })
+-- hidden_tag.selected = false
 
 
 local menubar = require("menubar")
@@ -189,8 +189,8 @@ local function set_wallpaper(s)
 
     -- Wallpaper
     if beautiful.wallpaper then
-        -- local wallpaper = beautiful.wallpaper
-        local wallpaper = "/home/mjacker/Pictures/devops.png" or beautiful.wallpaper
+        local wallpaper = beautiful.wallpaper
+        -- local wallpaper = "/home/mjacker/Pictures/devops.png" or beautiful.wallpaper
 
         -- If wallpaper is a function, call it with the screen
         if type(wallpaper) == "function" then
@@ -598,7 +598,7 @@ awful.rules.rules = {
     {
         rule = { class = "mpv" },
         properties = {
-            tag = hidden_tag,
+            -- tag = hidden_tag,
             floating = true,
             below = true,
             ontop = false,
@@ -759,4 +759,4 @@ end)
 awful.spawn.with_shell("conky -c ~/.config/conky/conky.conf")
 
 -- Animated desktop
-awful.spawn.with_shell("pgrep xwinwrap || xwinwrap -g 1920x1080 -ni -b -nf -un -- mpv --loop --no-audio --no-border --no-osc --no-input-default-bindings --no-input-cursor ~/.config/awesome/animated-desktops/mylivewallpapers.com-Code-Is-Life.mp4")
+awful.spawn.with_shell("pgrep xwinwrap || xwinwrap -fs -ni -b -nf -un -- mpv --loop --no-audio --no-border --no-osc --no-input-default-bindings --no-input-cursor ~/.config/awesome/animated-desktops/mylivewallpapers.com-Code-Is-Life.mp4")
