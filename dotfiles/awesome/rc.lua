@@ -20,12 +20,6 @@ naughty.config.defaults.margin = 16
 naughty.config.defaults.padding = 16
 naughty.config.defaults.border_width = 2
 
--- animated deskotp, create a hidden tag (no screen assigned or just never used) to be used by mpv
--- local hidden_tag = awful.tag.add("bg", {
---     screen = screen.primary,
---     layout = awful.layout.suit.floating,
--- })
--- hidden_tag.selected = false
 
 
 local menubar = require("menubar")
@@ -189,8 +183,8 @@ local function set_wallpaper(s)
 
     -- Wallpaper
     if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- local wallpaper = "/home/mjacker/Pictures/devops.png" or beautiful.wallpaper
+        --local wallpaper = beautiful.wallpaper
+        local wallpaper = "~/.config/awesome/animated-desktops/static-code-is-life.jpeg" or beautiful.wallpaper
 
         -- If wallpaper is a function, call it with the screen
         if type(wallpaper) == "function" then
@@ -238,6 +232,14 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, awful.layout.layouts[1])
 
+    -- animated deskotp, create a hidden tag (no screen assigned or just never used) to be used by mpv
+    -- local hidden_tag = awful.tag.add("bg", {
+    --      screen = screen.primary,
+    --      layout = awful.layout.suit.floating,
+    --  })
+    --  hidden_tag.selected = false
+
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -251,7 +253,10 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
-        filter  = awful.widget.taglist.filter.all,
+        --filter  = awful.widget.taglist.filter.all,
+        filter  = function(t)
+           return t.name ~= "bg"
+        end,
         buttons = taglist_buttons
     }
 
@@ -595,20 +600,20 @@ awful.rules.rules = {
       }
     },
     -- Rule for Background desktop
-    {
-        rule = { class = "mpv" },
-        properties = {
-            -- tag = hidden_tag,
-            floating = true,
-            below = true,
-            ontop = false,
-            skip_taskbar = true,
-            skip_switch = true,
-            sticky = true,
-            focusable = false,
-            titlebars_enabled = false,
-        }
-    },
+    -- {
+    --     rule = { class = "mpv" },
+    --     properties = {
+    --         tag = hidden_tag,
+    --         floating = true,
+    --         below = true,
+    --         ontop = false,
+    --         skip_taskbar = true,
+    --         skip_switch = true,
+    --         sticky = true,
+    --         focusable = false,
+    --         titlebars_enabled = false,
+    --     }
+    -- },
 }
 -- }}}
 
@@ -675,88 +680,20 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
-client.connect_signal("manage", function(c)
-    if c.class == "mpv" then
-        c:lower() -- ensures it always goes under everything
-    end
-end)
+
+-- client.connect_signal("manage", function(c)
+--     if c.name == "xwinwrap" then
+--         c:lower()
+--         c.below = true
+--         c.fullscreen = false
+--         c.ontop = false
+--     end
+-- end)
 
 -- }}} Signals
-
--- -- {{{ Animated desktop
--- client.connect_signal("manage", function(c)
---     if c.class == "mpv" then
---         c.floating = true
---         c.above = false
---         c.below = true
---         c.ontop = false
---         c.skip_taskbar = true
---         c.skip_switch = true
---         c.sticky = true
---         c.focusable = false
---         c.placement = nil
--- 
---         -- VERY important: force it to be ignored by layouts
---         c.ontop = false
---         c.above = false
---     end
--- end)
--- 
--- -- local gears = require("gears") -- already loaded
--- 
--- local function get_random_video()
---     local handle = io.popen('find /home/mjacker/animated-desktops -type f -name "*.mp4"')
---     local files = {}
--- 
---     for file in handle:lines() do
---         table.insert(files, file)
---     end
--- 
---     handle:close()
--- 
---     if #files == 0 then return nil end
--- 
---     --return files[math.random(#files)]
---     return files[#files]
--- end
--- 
--- local videos = {
---     ["1"] = "/home/mjacker/animated-desktops/Cyberpunk-2077-Night-City-Outskirts.mp4",
---     ["2"] = "/home/mjacker/animated-desktops/mylivewallpapers-com-Cyberpunk-Biker-Girl.mp4",
--- }
--- 
--- local wallpaper_pid = nil
--- 
--- local function set_video_wallpaper(t)
---     -- local video = videos[t.name]
---     local video = get_random_video()
--- 
---     if not video then return end
--- 
---     -- Kill previous instance safely
---     awful.spawn.with_shell("pkill -f xwinwrap")
--- 
---     -- Start new wallpaper
---     awful.spawn.with_shell(
---         string.format(
---             -- "xwinwrap -fs -ni -b -nf -un -- mpv --loop --no-audio --no-border --no-osc --no-input-default-bindings --no-input-cursor %q",
---             "xwinwrap -fs -ni -b -nf -un -- mpv --hwdec=auto --vo=gpu --gpu-context=x11egl --loop --no-audio --no-border --no-osc --no-input-default-bindings --no-input-cursor %q",
---             video
---         )
---     )
--- end
--- 
--- 
--- tag.connect_signal("property::selected", function(t)
---   set_video_wallpaper(t)
--- end)
--- 
--- 
--- 
--- -- }}}
 
 -- Autostart
 awful.spawn.with_shell("conky -c ~/.config/conky/conky.conf")
 
--- Animated desktop
-awful.spawn.with_shell("pgrep xwinwrap || xwinwrap -fs -ni -b -nf -un -- mpv --loop --no-audio --no-border --no-osc --no-input-default-bindings --no-input-cursor ~/.config/awesome/animated-desktops/mylivewallpapers.com-Code-Is-Life.mp4")
+-- Animated wallpaper
+awful.spawn.with_shell("sleep 1 && ~/.config/awesome/animated-desktops/wallpaper.sh")
