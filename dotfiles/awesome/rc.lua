@@ -106,9 +106,14 @@ system_awesomemenu = {
    { "btop", terminal .. " btop" },
    { "htop", terminal .. " htop" },
    { "watch nvidia-smi", terminal .. " watch nvidia-smi" },
-
 }
+
+wallpaper_menu = {
+  { "select wallpaper", "/home/mjacker/.config/awesome/animated-desktops/wallpaper-select.sh" },
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { " Wallpapers", wallpaper_menu }, 
                                     { "system-procces", system_awesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal }
                                   }
@@ -184,7 +189,7 @@ local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
         --local wallpaper = beautiful.wallpaper
-        local wallpaper = "~/.config/awesome/animated-desktops/static-code-is-life.jpeg" or beautiful.wallpaper
+        local wallpaper = "/home/mjacker/.config/awesome/animated-desktops/static-code-is-life.png" or beautiful.wallpaper
 
         -- If wallpaper is a function, call it with the screen
         if type(wallpaper) == "function" then
@@ -693,7 +698,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}} Signals
 
 -- Autostart
-awful.spawn.with_shell("conky -c ~/.config/conky/conky.conf")
+awful.spawn.with_shell("pgrep -x conky > /dev/null || conky -c ~/.config/conky/conky.conf")
 
 -- Animated wallpaper
-awful.spawn.with_shell("sleep 1 && ~/.config/awesome/animated-desktops/wallpaper.sh")
+awful.spawn.with_shell("sleep 2 && ~/.config/awesome/animated-desktops/wallpaper-default.sh")
